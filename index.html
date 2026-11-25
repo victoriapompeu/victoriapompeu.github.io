@@ -2,97 +2,1320 @@
 <html lang="ca">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Investigació de Victoria Mabel per a DIGI: comparació del raïm ecològic i convencional, ChatGPT i Google Acadèmic.">
-<title>Victoria Mabel | Investigació del raïm</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Projecte DIGI de Victoria Mabel: investigació sobre el raïm ecològic i convencional, els nutrients i la intel·ligència artificial.">
+<meta name="theme-color" content="#eeedf5">
+<title>Victoria Mabel | Raïm & Ciència · DIGI</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <style>
-:root{
- --bg:#eef0f5;
- --surface:rgba(255,255,255,.82);
- --surface-solid:#fff;
- --text:#242331;
- --muted:#777989;
- --purple:#8064bd;
- --purple2:#a58bd8;
- --border:rgba(120,120,145,.19);
- --shadow:0 18px 55px rgba(45,43,65,.10);
- --soft:rgba(128,100,189,.09);
+:root {
+  --bg: #f0f0f6;
+  --surface: rgba(255,255,255,.78);
+  --solid: #fff;
+  --text: #242333;
+  --muted: #77788b;
+  --purple: #8868c6;
+  --purple-dark: #65469f;
+  --silver: #d9dce7;
+  --border: rgba(120,115,150,.18);
+  --shadow: 0 20px 60px rgba(48,42,75,.10);
+  --nav-height: 76px;
 }
-body.dark{
- --bg:#11121a;
- --surface:rgba(35,36,51,.88);
- --surface-solid:#242536;
- --text:#f4f2fa;
- --muted:#b6b3c3;
- --purple:#b59be9;
- --purple2:#9276d0;
- --border:rgba(255,255,255,.11);
- --shadow:0 18px 55px rgba(0,0,0,.28);
- --soft:rgba(181,155,233,.10);
+
+body.dark {
+  --bg: #11121b;
+  --surface: rgba(32,33,47,.88);
+  --solid: #222333;
+  --text: #f4f2fa;
+  --muted: #b0afc1;
+  --purple: #b49be9;
+  --purple-dark: #9c7bd7;
+  --silver: #363647;
+  --border: rgba(255,255,255,.10);
+  --shadow: 0 20px 60px rgba(0,0,0,.28);
 }
-*{box-sizing:border-box;scroll-behavior:smooth}
-body{
- margin:0;font-family:Inter,sans-serif;color:var(--text);
- background:
- radial-gradient(circle at 8% 5%,rgba(153,126,213,.16),transparent 27%),
- radial-gradient(circle at 92% 35%,rgba(180,185,205,.18),transparent 28%),
- var(--bg);
- transition:background .3s,color .3s;
+
+* { box-sizing: border-box; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(150,120,210,.13),transparent 28%),
+    radial-gradient(circle at 90% 35%,rgba(180,185,210,.20),transparent 28%),
+    var(--bg);
+  color: var(--text);
+  transition: background .35s,color .35s;
+  overflow-x: hidden;
 }
-a{color:var(--purple)}
-.navbar{
- background:var(--surface);backdrop-filter:blur(18px);
- border-bottom:1px solid var(--border);padding:13px 0;
+
+a { text-decoration: none; }
+
+::selection {
+  background: rgba(136,104,198,.25);
+  color: var(--text);
 }
-.brand{font-weight:900;color:var(--text);text-decoration:none;letter-spacing:-.8px}
-.brand span{color:var(--purple)}
-.nav-link{font-size:12px;font-weight:700;color:var(--muted)!important;margin:0 5px}
-.nav-link:hover{color:var(--purple)!important}
-.navbar-toggler{border-color:var(--border)}
-.navbar-toggler-icon{filter:grayscale(1)}
-.theme-btn{
- width:42px;height:42px;border-radius:50%;border:1px solid var(--border);
- background:var(--surface);color:var(--text);
+
+/* BARRA DE PROGRÉS */
+
+#readingProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg,#8060bb,#c4b1ed);
+  z-index: 2000;
 }
-.hero{padding:145px 0 85px;position:relative;overflow:hidden}
-.tag{
- display:inline-flex;gap:9px;align-items:center;padding:9px 15px;
- border:1px solid var(--border);border-radius:40px;
- background:var(--surface);color:var(--purple);
- font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;
+
+/* NAVEGACIÓ */
+
+.navbar {
+  min-height: var(--nav-height);
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: .3s;
 }
-h1,h2,.serif{font-family:"Playfair Display",serif}
-.hero h1{font-size:clamp(43px,6vw,76px);line-height:1.08;font-weight:800;margin:25px 0}
-.gradient-text{
- background:linear-gradient(110deg,#8064bd,#b7a5df,#81879e);
- -webkit-background-clip:text;background-clip:text;color:transparent;
+
+.brand {
+  color: var(--text);
+  font-size: 19px;
+  font-weight: 900;
+  letter-spacing: -1px;
 }
-.hero p,.description{color:var(--muted);line-height:1.9;font-size:14px}
-.primary-btn,.secondary-btn{
- display:inline-flex;align-items:center;gap:10px;padding:14px 21px;
- border-radius:40px;text-decoration:none;font-size:12px;font-weight:800;
- transition:.25s;
+
+.brand span { color: var(--purple); }
+
+.nav-link {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  margin: 0 6px;
+  transition: .25s;
 }
-.primary-btn{
- color:white;background:linear-gradient(135deg,#8064bd,#a58bd8);
- box-shadow:0 12px 28px rgba(128,100,189,.25);
+
+.nav-link:hover { color: var(--purple); }
+
+.theme-btn {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  transition: .3s;
 }
-.primary-btn:hover{color:white;transform:translateY(-4px)}
-.secondary-btn{color:var(--text);background:var(--surface);border:1px solid var(--border)}
-.secondary-btn:hover{color:var(--purple);transform:translateY(-3px)}
-.hero-visual{perspective:1000px;padding:20px}
-.grape-card{
- min-height:390px;border-radius:34px;padding:35px;
- display:flex;flex-direction:column;justify-content:center;align-items:center;
- text-align:center;background:linear-gradient(135deg,#fff,#e2e2eb 50%,#faf9ff);
- color:#292637;border:1px solid white;
- box-shadow:22px 30px 65px rgba(50,45,75,.17);
- transform:rotateY(-7deg) rotateX(3deg);transition:.5s;
+
+.theme-btn:hover {
+  transform: rotate(15deg);
+  border-color: var(--purple);
 }
-.grape-card:hover{transform
+
+.navbar-toggler {
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.navbar-toggler-icon {
+  filter: grayscale(1);
+}
+
+/* PORTADA */
+
+.hero {
+  min-height: 780px;
+  display: flex;
+  align-items: center;
+  padding: 140px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  right: -180px;
+  top: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle,rgba(145,112,205,.20),transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  left: -200px;
+  bottom: -150px;
+  border-radius: 50%;
+  background: radial-gradient(circle,rgba(190,190,215,.25),transparent 70%);
+  pointer-events: none;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--purple);
+  border-radius: 50px;
+  padding: 11px 17px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display',serif;
+  font-size: clamp(48px,6.5vw,84px);
+  line-height: 1.04;
+  letter-spacing: -2.5px;
+  font-weight: 800;
+  margin: 27px 0;
+}
+
+.gradient-text {
+  background: linear-gradient(110deg,#7252ac,#b69be8,#82869d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-description {
+  max-width: 560px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.95;
+}
+
+.student-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 23px;
+}
+
+.student-pill {
+  padding: 9px 14px;
+  border-radius: 50px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.student-pill i {
+  color: var(--purple);
+  margin-right: 6px;
+}
+
+/* BOTONS */
+
+.primary-btn,
+.secondary-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+  padding: 15px 23px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 900;
+  transition: .3s;
+}
+
+.primary-btn {
+  color: white;
+  background: linear-gradient(135deg,#8060b9,#a58bda);
+  box-shadow: 0 12px 30px rgba(128,96,185,.28);
+}
+
+.primary-btn:hover {
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px rgba(128,96,185,.38);
+}
+
+.secondary-btn {
+  color: var(--text);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.secondary-btn:hover {
+  color: var(--purple);
+  border-color: var(--purple);
+  transform: translateY(-4px);
+}
+
+/* ELEMENT VISUAL 3D */
+
+.visual-stage {
+  perspective: 1200px;
+  padding: 25px;
+  position: relative;
+}
+
+.main-object {
+  min-height: 490px;
+  border-radius: 38px;
+  padding: 35px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg,#fff,#e0e1ea 48%,#fdfdff);
+  border: 1px solid rgba(255,255,255,.9);
+  box-shadow: 25px 35px 80px rgba(48,42,75,.19),inset 0 2px 5px white;
+  transform: rotateY(-9deg) rotateX(4deg);
+  transition: .6s;
+}
+
+.main-object:hover {
+  transform: rotateY(0) rotateX(0) translateY(-7px);
+}
+
+.object-light {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  right: -100px;
+  top: -110px;
+  border-radius: 50%;
+  background: radial-gradient(circle,rgba(145,112,205,.28),transparent 70%);
+}
+
+.logo-image {
+  display: block;
+  width: 105px;
+  height: 105px;
+  object-fit: contain;
+  margin: 0 auto 5px;
+  position: relative;
+  z-index: 2;
+}
+
+.grape {
+  text-align: center;
+  font-size: 160px;
+  line-height: 1.3;
+  filter: drop-shadow(12px 18px 12px rgba(60,35,90,.23));
+  animation: floating 4s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-16px) rotate(4deg); }
+}
+
+.main-object h3 {
+  color: #292637;
+  text-align: center;
+  font-weight: 900;
+  font-size: 26px;
+  position: relative;
+}
+
+.main-object p {
+  color: #777486;
+  text-align: center;
+  font-size: 12px;
+}
+
+.floating-chip {
+  position: absolute;
+  z-index: 3;
+  padding: 13px 16px;
+  border-radius: 16px;
+  background: white;
+  color: #494354;
+  border: 1px solid #e7e4ef;
+  box-shadow: 0 12px 30px rgba(30,25,55,.13);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.chip-a { top: 10px; left: -5px; }
+.chip-b { bottom: 20px; right: -5px; }
+
+/* SECCIONS */
+
+.section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.soft-section {
+  background: linear-gradient(135deg,rgba(155,140,195,.09),rgba(255,255,255,.13));
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.section-tag {
+  color: var(--purple);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: 'Playfair Display',serif;
+  font-size: clamp(34px,4vw,52px);
+  font-weight: 800;
+  margin: 13px 0 18px;
+  letter-spacing: -1px;
+}
+
+.section-description {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.95;
+}
+
+/* TARGETES */
+
+.glass-card {
+  height: 100%;
+  padding: 30px;
+  border-radius: 26px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(15px);
+  transition: .35s;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 55px rgba(60,50,90,.16);
+}
+
+.card-icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: linear-gradient(135deg,rgba(128,100,189,.18),rgba(180,165,215,.35));
+  color: var(--purple);
+  font-size: 22px;
+  margin-bottom: 22px;
+}
+
+.glass-card h3 {
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 13px;
+}
+
+.glass-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.number {
+  font-family: 'Playfair Display',serif;
+  font-size: 43px;
+  font-weight: 800;
+  color: var(--purple);
+  margin-bottom: 10px;
+}
+
+/* PREGUNTA PRINCIPAL */
+
+.question-box {
+  padding: 45px;
+  border-radius: 32px;
+  background: linear-gradient(135deg,#fff,#e3e2ed 55%,#f8f7fc);
+  color: #292637;
+  border: 1px solid white;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.question-box::after {
+  content: "❝";
+  position: absolute;
+  right: 30px;
+  top: -35px;
+  font-family: Georgia,serif;
+  font-size: 180px;
+  color: rgba(128,100,189,.10);
+}
+
+.question-box h3 {
+  font-family: 'Playfair Display',serif;
+  font-size: clamp(25px,3.5vw,39px);
+  font-weight: 800;
+  line-height: 1.35;
+  position: relative;
+  z-index: 1;
+}
+
+.question-box p {
+  color: #777486;
+  font-size: 13px;
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+}
+
+/* METODOLOGIA */
+
+.step-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+  margin-bottom: 25px;
+}
+
+.step-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 15px;
+  background: rgba(128,100,189,.15);
+  color: var(--purple);
+}
+
+.step-card h4 {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.step-card p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* CONCEPTES */
+
+.concept-card {
+  padding: 23px;
+  height: 100%;
+  border-radius: 21px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: .3s;
+}
+
+.concept-card:hover {
+  border-color: var(--purple);
+  transform: translateY(-5px);
+}
+
+.concept-card h4 {
+  font-size: 15px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.concept-card p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* RECURSOS */
+
+.resource-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 100%;
+  padding: 23px;
+  border-radius: 22px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: .3s;
+}
+
+.resource-link:hover {
+  transform: translateY(-5px);
+  border-color: var(--purple);
+  color: var(--purple);
+}
+
+.resource-icon {
+  width: 49px;
+  height: 49px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  background: rgba(128,100,189,.15);
+  color: var(--purple);
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.resource-link h4 {
+  font-size: 14px;
+  font-weight: 900;
+  margin: 0 0 5px;
+}
+
+.resource-link p {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* PREGUNTES FREQÜENTS */
+
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.faq-question i {
+  color: var(--purple);
+  transition: .3s;
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 20px 20px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.faq-item.open .faq-answer { display: block; }
+.faq-item.open .faq-question i { transform: rotate(180deg); }
+
+/* CRIDA FINAL */
+
+.final-banner {
+  padding: 55px 35px;
+  border-radius: 35px;
+  background: linear-gradient(135deg,#fff,#e0dfeb 50%,#f8f7fc);
+  color: #292637;
+  border: 1px solid white;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.final-banner h2 {
+  font-family: 'Playfair Display',serif;
+  font-size: clamp(30px,4vw,46px);
+  font-weight: 800;
+}
+
+.final-banner p {
+  max-width: 620px;
+  margin: 15px auto 25px;
+  color: #777486;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 42px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+footer a { color: var(--purple); }
+
+.footer-name {
+  font-weight: 900;
+  color: var(--text);
+}
+
+/* ANIMACIONS */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .7s,transform .7s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#backTop {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#8060b9,#a58bda);
+  color: white;
+  box-shadow: 0 10px 25px rgba(80,60,130,.3);
+  display: none;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+#backTop.show { display: block; }
+
+@media(max-width:991px) {
+  .navbar-collapse {
+    padding: 15px 0;
+  }
+  .nav-link { margin: 7px 0; }
+}
+
+@media(max-width:767px) {
+  .hero { padding-top: 120px; min-height: auto; }
+  .hero h1 { font-size: 49px; }
+  .visual-stage { margin-top: 25px; }
+  .main-object { min-height: 380px; }
+  .grape { font-size: 125px; }
+  .section { padding: 72px 0; }
+  .question-box { padding: 30px; }
+  .final-banner { padding: 38px 22px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="readingProgress"></div>
+
+<!-- NAVEGACIÓ -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="brand" href="#inici">RAÏM <span>& CIÈNCIA.</span></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-label="Obrir menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="#presentacio">Presentació</a></li>
+        <li class="nav-item"><a class="nav-link" href="#objectius">Objectius</a></li>
+        <li class="nav-item"><a class="nav-link" href="#metodologia">Metodologia</a></li>
+        <li class="nav-item"><a class="nav-link" href="#conceptes">Conceptes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#recursos">Recursos</a></li>
+        <li class="nav-item ms-lg-3">
+          <button class="theme-btn" id="themeToggle" aria-label="Canviar el tema">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PORTADA -->
+<header class="hero" id="inici">
+  <div class="container position-relative">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6">
+        <div class="eyebrow">
+          <i class="fa-solid fa-atom"></i>
+          Projecte acadèmic · DIGI · 2026
+        </div>
+
+        <h1>
+          La ciència darrere del
+          <span class="gradient-text">raïm.</span>
+        </h1>
+
+        <p class="hero-description">
+          Una investigació sobre el raïm ecològic i convencional.
+          Descobrim els seus nutrients, explorem les fonts científiques
+          i comparem la informació de la intel·ligència artificial
+          amb la que trobem a Google Acadèmic.
+        </p>
+
+        <div class="student-line">
+          <span class="student-pill"><i class="fa-solid fa-user"></i> Victoria Mabel</span>
+          <span class="student-pill"><i class="fa-solid fa-laptop"></i> Assignatura DIGI</span>
+        </div>
+
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="ia/" class="primary-btn">
+            Explorar la investigació
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#presentacio" class="secondary-btn">
+            Descobrir el projecte
+            <i class="fa-solid fa-angle-down"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="visual-stage">
+          <div class="floating-chip chip-a">
+            <i class="fa-solid fa-leaf me-2"></i> Agricultura
+          </div>
+
+          <div class="main-object">
+            <div class="object-light"></div>
+            <img src="logo.png" alt="Logotip del projecte Raïm i Ciència" class="logo-image"
+                 onerror="this.style.display='none'">
+            <div class="grape">🍇</div>
+            <h3>Vitis vinifera</h3>
+            <p>Ecologia · Nutrició · Tecnologia</p>
+          </div>
+
+          <div class="floating-chip chip-b">
+            <i class="fa-solid fa-microscope me-2"></i> Recerca científica
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- PRESENTACIÓ -->
+<section class="section" id="presentacio">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="section-tag">01 · Presentació</div>
+      <h2 class="section-title">Benvinguts al projecte</h2>
+      <p class="section-description mx-auto">
+        Aquest projecte uneix tres àmbits: l'agricultura, la ciència
+        i la tecnologia. L'objectiu és investigar el raïm ecològic
+        i convencional i aprendre a contrastar informació de diferents fonts.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4 reveal">
+        <div class="glass-card">
+          <div class="card-icon"><i class="fa-solid fa-seedling"></i></div>
+          <h3>Agricultura</h3>
+          <p>Estudiem dos sistemes de cultiu: l'ecològic i el convencional, i les seves característiques.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal">
+        <div class="glass-card">
+          <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
+          <h3>Ciència i nutrició</h3>
+          <p>Investiguem vitamines, minerals, polifenols i altres compostos presents en el raïm.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal">
+        <div class="glass-card">
+          <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+          <h3>Intel·ligència artificial</h3>
+          <p>Compare m la informació generada per ChatGPT amb les publicacions científiques consultades.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREGUNTA DE RECERCA -->
+<section class="soft-section section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 reveal">
+        <div class="section-tag">02 · Pregunta de recerca</div>
+        <h2 class="section-title">Què volem descobrir?</h2>
+        <p class="section-description">
+          Una investigació comença amb una pregunta.
+          A partir d'aquesta pregunta busquem informació,
+          comparem dades i analitzem què podem concloure.
+        </p>
+      </div>
+
+      <div class="col-lg-7 reveal">
+        <div class="question-box">
+          <div class="section-tag mb-3">La pregunta principal</div>
+          <h3>Hi ha diferències en la composició nutricional del raïm ecològic i del convencional?</h3>
+          <p class="mt-3 mb-0">
+            També volem comprovar com podem utilitzar la intel·ligència
+            artificial i Google Acadèmic per trobar i contrastar informació.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIUS -->
+<section class="section" id="objectius">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="section-tag">03 · Objectius</div>
+      <h2 class="section-title">Què volem aconseguir?</h2>
+      <p class="section-description mx-auto">
+        Aquests són els objectius principals que guien el desenvolupament
+        del treball.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 reveal">
+        <div class="glass-card">
+          <div class="number">01</div>
+          <h3>Comparar els dos cultius</h3>
+          <p>Investigar les característiques de la producció ecològica i la convencional.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 reveal">
+        <div class="glass-card">
+          <div class="number">02</div>
+          <h3>Analitzar els nutrients</h3>
+          <p>Consultar la informació disponible sobre vitamines, minerals i compostos antioxidants.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 reveal">
+        <div class="glass-card">
+          <div class="number">03</div>
+          <h3>Verificar la informació</h3>
+          <p>Contrastar les respostes de la intel·ligència artificial amb publicacions acadèmiques.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 reveal">
+        <div class="glass-card">
+          <div class="number">04</div>
+          <h3>Interpretar els resultats</h3>
+          <p>Analitzar les dades amb criteri i elaborar conclusions basades en la informació consultada.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METODOLOGIA -->
+<section class="soft-section section" id="metodologia">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6 reveal">
+        <div class="section-tag">04 · Metodologia</div>
+        <h2 class="section-title">Com fem la investigació?</h2>
+        <p class="section-description">
+          Per obtenir una investigació ordenada, seguim diferents passos
+          que ens ajuden a passar de la pregunta inicial a les conclusions.
+        </p>
+
+        <div class="mt-4">
+          <div class="step-card">
+            <div class="step-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <div>
+              <h4>1. Recerca d'informació</h4>
+              <p>Consultar fonts acadèmiques i informació relacionada amb el raïm.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon"><i class="fa-solid fa-table"></i></div>
+            <div>
+              <h4>2. Organització de dades</h4>
+              <p>Ordenar els nutrients, les mesures i els resultats disponibles.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon"><i class="fa-solid fa-chart-column"></i></div>
+            <div>
+              <h4>3. Comparació i anàlisi</h4>
+              <p>Comparar la informació i interpretar les dades amb atenció.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon"><i class="fa-solid fa-lightbulb"></i></div>
+            <div>
+              <h4>4. Conclusions</h4>
+              <p>Respondre la pregunta inicial a partir de les dades estudiades.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 reveal">
+        <div class="glass-card p-4 p-md-5">
+          <div class="card-icon"><i class="fa-solid fa-microscope"></i></div>
+          <h3>La importància de contrastar</h3>
+          <p>
+            No tota la informació que trobem té el mateix nivell de fiabilitat.
+            Per això és important consultar les fonts originals, comprovar
+            les dades i identificar d'on prové cada afirmació.
+          </p>
+          <hr style="border-color:var(--border)">
+          <p class="mb-0">
+            <strong style="color:var(--purple)">Idea clau:</strong>
+            una resposta de la intel·ligència artificial pot ser útil,
+            però cal verificar-la amb fonts fiables.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPTES -->
+<section class="section" id="conceptes">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="section-tag">05 · Conceptes científics</div>
+      <h2 class="section-title">Què investiguem?</h2>
+      <p class="section-description mx-auto">
+        Alguns dels conceptes que apareixen en el projecte i que ens ajuden
+        a entendre la composició del raïm i l'anàlisi de les dades.
+      </p>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-sm-6 col-lg-4 reveal">
+        <div class="concept-card">
+          <h4><i class="fa-solid fa-leaf me-2" style="color:var(--purple)"></i>Polifenols</h4>
+          <p>Compostos vegetals que s'estudien per les seves propietats antioxidants.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 reveal">
+        <div class="concept-card">
+          <h4><i class="fa-solid fa-shield-heart me-2" style="color:var(--purple)"></i>Antioxidants</h4>
+          <p>Substàncies que poden ajudar a protegir les cèl·lules davant l'oxidació.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 reveal">
+        <div class="concept-card">
+          <h4><i class="fa-solid fa-capsules me-2" style="color:var(--purple)"></i>Vitamines</h4>
+          <p>Compostos necessaris per al funcionament normal de l'organisme.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 reveal">
+        <div class="concept-card">
+          <h4><i class="fa-solid fa-gem me-2" style="color:var(--purple)"></i>Minerals</h4>
+          <p>Elements com el ferro, el coure i el magnesi que formen part de la composició dels aliments.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 reveal">
+        <div class="concept-card">
+          <h4><i class="fa-solid fa-calculator me-2" style="color:var(--purple)"></i>Mitjana i SD</h4>
+          <p>La mitjana resumeix les dades i la desviació estàndard (SD) indica la seva dispersió.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 reveal">
+        <div class="concept-card">
+          <h4><i class="fa-solid fa-chart-line me-2" style="color:var(--purple)"></i>Valor p</h4>
+          <p>Una mesura estadística que ajuda a interpretar els resultats d'una prova d'hipòtesi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECURSOS -->
+<section class="soft-section section" id="recursos">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="section-tag">06 · Eines i recursos</div>
+      <h2 class="section-title">Explora i consulta</h2>
+      <p class="section-description mx-auto">
+        Accedeix a les eines que ens ajuden a buscar informació,
+        consultar estudis i desenvolupar el projecte.
+      </p>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-md-6 reveal">
+        <a class="resource-link" href="ia/">
+          <div class="resource-icon"><i class="fa-solid fa-book-open"></i></div>
+          <div>
+            <h4>Investigació completa</h4>
+            <p>Consulta el treball, les comparacions i els resultats.</p>
+          </div>
+          <i class="fa-solid fa-arrow-right ms-auto"></i>
+        </a>
+      </div>
+
+      <div class="col-md-6 reveal">
+        <a class="resource-link" href="https://scholar.google.com/scholar?q=Vitis+vinifera+organic+conventional+grape+nutritional+composition" target="_blank" rel="noopener noreferrer">
+          <div class="resource-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div>
+            <h4>Google Acadèmic</h4>
+            <p>Cerca publicacions i estudis científics sobre el raïm.</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square ms-auto"></i>
+        </a>
+      </div>
+
+      <div class="col-md-6 reveal">
+        <a class="resource-link" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">
+          <div class="resource-icon"><i class="fa-solid fa-robot"></i></div>
+          <div>
+            <h4>ChatGPT</h4>
+            <p>Explora l'ús de la intel·ligència artificial com a eina de consulta.</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square ms-auto"></i>
+        </a>
+      </div>
+
+      <div class="col-md-6 reveal">
+        <a class="resource-link" href="https://www.ncbi.nlm.nih.gov/" target="_blank" rel="noopener noreferrer">
+          <div class="resource-icon"><i class="fa-solid fa-book-medical"></i></div>
+          <div>
+            <h4>PubMed</h4>
+            <p>Consulta literatura científica relacionada amb nutrició i biologia.</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square ms-auto"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREGUNTES FREQÜENTS -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="section-tag">07 · Preguntes freqüents</div>
+      <h2 class="section-title">Preguntes sobre el projecte</h2>
+      <p class="section-description mx-auto">
+        Algunes respostes per entendre millor la investigació.
+      </p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-9 reveal">
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Què és el raïm ecològic?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            És el raïm produït seguint les normes de l'agricultura ecològica,
+            que regulen els mètodes de cultiu i els productes que es poden utilitzar.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Què és el raïm convencional?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            És el raïm obtingut mitjançant sistemes d'agricultura convencional,
+            que poden utilitzar fertilitzants i productes fitosanitaris autoritzats.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Per què comparem ChatGPT amb Google Acadèmic?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Per estudiar les diferències entre una resposta generada per
+            intel·ligència artificial i la informació publicada en estudis científics.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Què significa Vitis vinifera?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            És el nom científic de l'espècie de vinya a la qual pertany
+            gran part del raïm cultivat.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            On puc consultar els resultats del treball?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Pots entrar a l'apartat d'investigació completa des del botó
+            de la portada o des de l'enllaç d'aquesta mateixa pàgina.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRIDA FINAL -->
+<section class="section">
+  <div class="container reveal">
+    <div class="final-banner">
+      <div class="card-icon mx-auto"><i class="fa-solid fa-flask"></i></div>
+      <div class="section-tag mb-3">RAÏM & CIÈNCIA · DIGI</div>
+      <h2>Investigar és aprendre a preguntar.</h2>
+      <p>
+        Descobreix la investigació completa, consulta les dades
+        i explora com la ciència i la tecnologia poden ajudar-nos
+        a comprendre millor el món que ens envolta.
+      </p>
+      <a href="ia/" class="primary-btn">
+        Entrar a la investigació
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PEU DE PÀGINA -->
+<footer>
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-6">
+        <a class="brand" href="#inici">RAÏM <span>& CIÈNCIA.</span></a>
+        <div class="mt-2">Projecte acadèmic de l'assignatura DIGI</div>
+        <div class="footer-name mt-1">Victoria Mabel</div>
+      </div>
+
+      <div class="col-md-6 text-md-end">
+        <div>© 2026 · Projecte educatiu</div>
+        <a href="#inici">Tornar a l'inici ↑</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="backTop" aria-label="Tornar a l'inici">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// MODE CLAR I FOSC
+const themeButton = document.getElementById('themeToggle');
+const themeIcon = themeButton.querySelector('i');
+
+function setTheme(dark) {
+  document.body.classList.toggle('dark', dark);
+  themeIcon.className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+  localStorage.setItem('raim-theme', dark ? 'dark' : 'light');
+}
+
+const savedTheme = localStorage.getItem('raim-theme');
+if (savedTheme === 'dark') setTheme(true);
+
+themeButton.addEventListener('click', () => {
+  setTheme(!document.body.classList.contains('dark'));
+});
+
+// ANIMACIONS EN APARÈIXER
+const revealElements = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealElements.forEach(element => observer.observe(element));
+} else {
+  revealElements.forEach(element => element.classList.add('visible'));
+}
+
+// PREGUNTES FREQÜENTS
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', () => {
+    const item = button.parentElement;
+    const isOpen = item.classList.toggle('open');
+    button.setAttribute('aria-expanded', isOpen);
+  });
+});
+
+// PROGRÉS DE LECTURA I BOTÓ DE PUJAR
+const progress = document.getElementById('readingProgress');
+const backTop = document.getElementById('backTop');
+
+function updateScroll() {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const percentage = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+
+  progress.style.width = percentage + '%';
+  backTop.classList.toggle('show', window.scrollY > 500);
+}
+
+window.addEventListener('scroll', updateScroll, { passive: true });
+updateScroll();
+
+backTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// TANCAR EL MENÚ MÒBIL DESPRÉS DE TRIAR UNA SECCIÓ
+document.querySelectorAll('.navbar .nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    const menu = document.getElementById('menu');
+    if (menu.classList.contains('show')) {
+      bootstrap.Collapse.getOrCreateInstance(menu).hide();
+    }
+  });
+});
+</script>
+
+</body>
+</html>
+```
