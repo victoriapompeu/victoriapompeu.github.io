@@ -1,362 +1,614 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Projecte de DIGI de Victoria Mabel: investigació sobre el raïm ecològic i convencional, la ciència i la intel·ligència artificial.">
-<title>Victoria Mabel | Raïm & Ciència</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090a12">
+  <meta name="description" content="Projecte de DIGI de Victoria Mabel: comparació del raïm ecològic i convencional.">
+  <title>Victoria Mabel | DIGI</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-<style>
-:root {
-  --bg:#f4f3f7;
-  --paper:#fff;
-  --ink:#252331;
-  --muted:#777485;
-  --purple:#8068a9;
-  --purple2:#b3a2d0;
-  --line:rgba(60,50,80,.12);
-  --shadow:0 24px 70px rgba(48,39,68,.10);
-}
-body.dark {
-  --bg:#14131b;
-  --paper:#211f2b;
-  --ink:#f4f0fa;
-  --muted:#b9b3c5;
-  --purple:#c2a9ed;
-  --purple2:#8c75b4;
-  --line:rgba(255,255,255,.12);
-  --shadow:0 24px 70px rgba(0,0,0,.25);
-}
-* {box-sizing:border-box;scroll-behavior:smooth}
-body {
-  margin:0;background:var(--bg);color:var(--ink);
-  font-family:'DM Sans',sans-serif;transition:background .3s,color .3s;
-}
-a {text-decoration:none}
-.navbar {
-  background:color-mix(in srgb,var(--bg) 84%,transparent);
-  backdrop-filter:blur(22px);border-bottom:1px solid var(--line);
-  padding:15px 0;
-}
-.brand {font-weight:800;letter-spacing:-1px;color:var(--ink);font-size:19px}
-.brand span {color:var(--purple)}
-.nav-link {font-size:12px;font-weight:700;color:var(--muted)!important;margin:0 8px}
-.nav-link:hover {color:var(--purple)!important}
-.theme-btn {
-  width:42px;height:42px;border-radius:50%;border:1px solid var(--line);
-  background:var(--paper);color:var(--ink)
-}
-.hero {min-height:100vh;display:flex;align-items:center;padding:125px 0 80px;overflow:hidden;position:relative}
-.hero:before {
-  content:"";position:absolute;width:650px;height:650px;right:-170px;top:5%;
-  background:radial-gradient(circle,rgba(151,126,190,.20),transparent 68%);
-  pointer-events:none;
-}
-.kicker {
-  display:inline-flex;gap:9px;align-items:center;border:1px solid var(--line);
-  border-radius:50px;padding:10px 15px;color:var(--purple);
-  background:var(--paper);font-size:10px;font-weight:800;letter-spacing:1.7px;
-  text-transform:uppercase;
-}
-.hero h1 {
-  font-family:'Playfair Display',serif;font-size:clamp(52px,7vw,92px);
-  line-height:1.02;letter-spacing:-3px;margin:27px 0 22px;
-}
-.hero h1 span {
-  background:linear-gradient(110deg,#76609e,#b6a5d2,#85899c);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.hero-copy {max-width:560px;color:var(--muted);font-size:15px;line-height:1.95}
-.btn-main,.btn-outline {
-  display:inline-flex;align-items:center;gap:12px;padding:15px 23px;
-  border-radius:50px;font-size:12px;font-weight:800;transition:.3s;
-}
-.btn-main {background:linear-gradient(135deg,#76609e,#a58fc8);color:white;box-shadow:0 12px 30px #8068a944}
-.btn-main:hover {color:white;transform:translateY(-4px);box-shadow:0 18px 35px #8068a966}
-.btn-outline {border:1px solid var(--line);background:var(--paper);color:var(--ink)}
-.btn-outline:hover {color:var(--purple);transform:translateY(-3px)}
-.art-wrap {position:relative;padding:28px;perspective:1200px}
-.art-card {
-  min-height:510px;border-radius:34px;padding:34px;
-  background:linear-gradient(145deg,#fff,#e5e1ec 55%,#faf9fc);
-  border:1px solid white;box-shadow:25px 35px 85px #342a4b28;
-  display:flex;flex-direction:column;justify-content:center;align-items:center;
-  transform:rotateY(-7deg) rotateX(3deg);transition:.6s;position:relative;overflow:hidden;
-}
-.art-card:hover {transform:rotateY(0) rotateX(0) translateY(-7px)}
-.art-card:before {
-  content:"";position:absolute;width:330px;height:330px;border-radius:50%;
-  background:radial-gradient(circle,#b8a7d8aa,transparent 70%);top:-120px;right:-90px;
-}
-.art-logo {width:100px;height:100px;object-fit:contain;position:relative;z-index:1}
-.grape-art {font-size:170px;filter:drop-shadow(12px 18px 13px #49375b33);animation:float 5s ease-in-out infinite}
-.art-card h2 {font-family:'Playfair Display',serif;color:#302a3d;font-size:30px;font-weight:700;position:relative}
-.art-card p {color:#777184;font-size:12px;letter-spacing:2px;text-transform:uppercase}
-.orbit {
-  position:absolute;border:1px solid #a99bc3aa;border-radius:50%;
-  width:390px;height:390px;pointer-events:none;
-}
-.chip {
-  position:absolute;background:var(--paper);border:1px solid var(--line);
-  padding:13px 17px;border-radius:15px;box-shadow:var(--shadow);
-  font-size:11px;font-weight:800;color:var(--ink);z-index:2;
-}
-.chip.one {top:5px;left:0}.chip.two {bottom:15px;right:0}
-@keyframes float {0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-15px) rotate(3deg)}}
-.section {padding:105px 0}
-.section-label {font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--purple);font-weight:800}
-.section-title {font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,53px);font-weight:700;letter-spacing:-1px;margin:13px 0}
-.section-lead {color:var(--muted);font-size:14px;line-height:1.9;max-width:700px}
-.paper-card {
-  height:100%;padding:30px;border-radius:23px;background:var(--paper);
-  border:1px solid var(--line);box-shadow:var(--shadow);transition:.35s;
-}
-.paper-card:hover {transform:translateY(-7px)}
-.icon-box {
-  width:52px;height:52px;border-radius:17px;display:grid;place-items:center;
-  color:var(--purple);background:linear-gradient(135deg,#8068a922,#b3a2d044);
-  font-size:20px;margin-bottom:23px;
-}
-.paper-card h3 {font-size:17px;font-weight:800;margin-bottom:12px}
-.paper-card p {color:var(--muted);font-size:13px;line-height:1.85;margin:0}
-.about-panel {
-  background:var(--paper);border:1px solid var(--line);border-radius:30px;
-  padding:clamp(28px,5vw,55px);box-shadow:var(--shadow);
-}
-.initial {
-  width:90px;height:90px;border-radius:27px;display:grid;place-items:center;
-  background:linear-gradient(135deg,#8068a9,#b6a5d2);color:white;
-  font-family:'Playfair Display',serif;font-size:34px;font-weight:700;
-  box-shadow:0 15px 35px #8068a944;
-}
-.quote {
-  border-left:3px solid var(--purple);padding:5px 0 5px 20px;
-  color:var(--muted);font-family:'Playfair Display',serif;font-size:20px;line-height:1.6;
-}
-.number {font-family:'Playfair Display',serif;font-size:43px;color:var(--purple)}
-.path-line {border-left:1px solid var(--line);margin-left:20px;padding-left:27px}
-.path-item {position:relative;margin-bottom:28px}
-.path-item:before {
-  content:"";position:absolute;left:-34px;top:4px;width:13px;height:13px;
-  background:var(--purple);border:3px solid var(--bg);border-radius:50%;
-}
-.path-item h3 {font-size:14px;font-weight:800}
-.path-item p {font-size:12px;color:var(--muted);line-height:1.8}
-.cta {
-  padding:55px;border-radius:32px;
-  background:linear-gradient(120deg,#292438,#62527e 65%,#9181ad);
-  color:white;position:relative;overflow:hidden;
-}
-.cta:after {content:"🍇";position:absolute;font-size:170px;right:35px;bottom:-30px;opacity:.18}
-.cta h2 {font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,48px);font-weight:700}
-.cta p {max-width:560px;color:#e5dfed;font-size:13px;line-height:1.9}
-.cta .btn-main {background:white;color:#443754;box-shadow:none}
-footer {padding:30px 0;border-top:1px solid var(--line);color:var(--muted);font-size:11px}
-footer a {color:var(--purple)}
-.reveal {opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
-.reveal.show {opacity:1;transform:none}
-@media(max-width:767px) {
-  .hero {min-height:auto;padding-top:115px}
-  .art-card {min-height:390px}.grape-art {font-size:125px}
-  .section {padding:75px 0}.cta {padding:32px}
-  .art-wrap {padding:18px}
-}
-@media(prefers-reduced-motion:reduce) {
-  *,*:before,*:after {animation:none!important;scroll-behavior:auto!important;transition:none!important}
-  .reveal {opacity:1;transform:none}
-}
-</style>
+  <style>
+    :root {
+      --bg: #090a12;
+      --surface: rgba(255,255,255,.055);
+      --text: #f5f4fa;
+      --muted: #a6a5b5;
+      --silver: #d8d9e5;
+      --violet: #a78bfa;
+      --line: rgba(255,255,255,.13);
+      --max: 1500px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 75% 20%, rgba(125,90,190,.20), transparent 38%),
+        radial-gradient(ellipse at 10% 85%, rgba(120,130,170,.13), transparent 35%),
+        var(--bg);
+      font-family: "DM Sans", sans-serif;
+    }
+
+    body.light {
+      --bg: #f3f2f8;
+      --surface: rgba(255,255,255,.72);
+      --text: #171622;
+      --muted: #656475;
+      --silver: #49485a;
+      --line: rgba(20,20,40,.14);
+      background:
+        radial-gradient(ellipse at 75% 20%, rgba(167,139,250,.19), transparent 38%),
+        #f3f2f8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .progress {
+      position: fixed;
+      z-index: 20;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #a78bfa, #e3e4f0);
+    }
+
+    .container {
+      width: min(90%, var(--max));
+      margin: auto;
+    }
+
+    header {
+      position: relative;
+      z-index: 5;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(216,217,229,.5);
+      border-radius: 13px;
+      background: linear-gradient(145deg, rgba(255,255,255,.19), rgba(255,255,255,.025));
+      color: var(--silver);
+      font-family: "Playfair Display", serif;
+      font-size: 21px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-label {
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .theme-button {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 18px;
+      transition: transform .25s ease;
+    }
+
+    .theme-button:hover {
+      transform: rotate(20deg);
+    }
+
+    main {
+      padding: clamp(65px, 11vh, 140px) 0 100px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      align-items: center;
+      gap: clamp(40px, 7vw, 110px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 27px;
+      color: var(--violet);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1 {
+      max-width: 850px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3.5rem, 7.5vw, 8.5rem);
+      font-weight: 500;
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+
+    h1 span {
+      display: block;
+      color: transparent;
+      background: linear-gradient(110deg, #fff, #aaa9bd 55%, #a78bfa);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    body.light h1 span {
+      background-image: linear-gradient(110deg, #242232, #77738e 55%, #8764d5);
+    }
+
+    .intro {
+      max-width: 620px;
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: clamp(15px, 1.3vw, 19px);
+      line-height: 1.9;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 17px;
+      margin-top: 38px;
+    }
+
+    .primary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      min-height: 58px;
+      padding: 0 26px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 8px;
+      background: linear-gradient(110deg, #dedee9, #a9a8bd);
+      color: #14131d;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .primary-button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(167,139,250,.2);
+    }
+
+    .arrow {
+      font-size: 20px;
+    }
+
+    .secondary-button {
+      padding: 15px 8px;
+      color: var(--muted);
+      font-size: 14px;
+      transition: color .2s;
+    }
+
+    .secondary-button:hover {
+      color: var(--text);
+    }
+
+    .visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 500px;
+      isolation: isolate;
+    }
+
+    .orb {
+      position: absolute;
+      width: min(36vw, 470px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(216,217,229,.25);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 32% 28%, rgba(255,255,255,.2), transparent 23%),
+        radial-gradient(circle at 65% 70%, rgba(167,139,250,.24), transparent 35%),
+        linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.015));
+      box-shadow:
+        inset 0 0 80px rgba(255,255,255,.035),
+        0 0 100px rgba(167,139,250,.12);
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .orb::before,
+    .orb::after {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 50%;
+      transform: rotateX(65deg) rotateZ(25deg);
+    }
+
+    .orb::after {
+      transform: rotateX(65deg) rotateZ(-35deg);
+    }
+
+    .orb-text {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .orb-text strong {
+      display: block;
+      color: var(--silver);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(5rem, 10vw, 9rem);
+      font-weight: 500;
+      letter-spacing: -.08em;
+    }
+
+    .orb-text span {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+    }
+
+    .floating-card {
+      position: absolute;
+      right: 0;
+      bottom: 12%;
+      padding: 19px 22px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.15);
+    }
+
+    .floating-card small {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .floating-card strong {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      margin: 50px 0;
+      background: var(--line);
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .section-heading {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 3.5vw, 3.6rem);
+      font-weight: 500;
+      line-height: 1.15;
+    }
+
+    .section-copy {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .tag {
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      border-radius: 50px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: .04em;
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(3deg); }
+    }
+
+    @media (min-width: 2000px) {
+      .container {
+        width: min(84%, 1900px);
+      }
+
+      .intro, .section-copy {
+        font-size: 21px;
+      }
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .visual {
+        min-height: 390px;
+      }
+
+      .orb {
+        width: min(65vw, 390px);
+      }
+
+      .preview {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      header {
+        padding: 18px 0;
+      }
+
+      .nav-label {
+        display: none;
+      }
+
+      main {
+        padding-top: 65px;
+      }
+
+      .visual {
+        min-height: 320px;
+      }
+
+      .floating-card {
+        right: 0;
+        bottom: 3%;
+      }
+
+      .actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .primary-button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container">
-    <a class="brand" href="#inici">VICTORIA <span>MABEL.</span></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-label="Obrir menú">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="menu">
-      <ul class="navbar-nav ms-auto align-items-lg-center">
-        <li class="nav-item"><a class="nav-link" href="#sobre-mi">SOBRE MI</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projecte">PROJECTE</a></li>
-        <li class="nav-item"><a class="nav-link" href="#metode">METODOLOGIA</a></li>
-        <li class="nav-item"><a class="nav-link" href="#entrada">INVESTIGACIÓ</a></li>
-        <li class="nav-item ms-lg-3"><button class="theme-btn" id="themeToggle" aria-label="Canviar tema"><i class="fa-solid fa-moon"></i></button></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  <div class="progress" id="progress"></div>
 
-<header class="hero" id="inici">
-  <div class="container position-relative">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-6">
-        <div class="kicker"><i class="fa-solid fa-graduation-cap"></i> PROJECTE DE DIGI · 2026</div>
-        <h1>Una mirada a la ciència del <span>raïm.</span></h1>
-        <p class="hero-copy">
-          Soc Victoria Mabel i aquest és el meu projecte de DIGI.
-          Un espai on la investigació científica, l'agricultura i la tecnologia
-          es troben per explorar les diferències entre el raïm ecològic
-          i el raïm de cultiu convencional.
+  <header>
+    <div class="container nav">
+      <a class="brand" href="./" aria-label="Inici">
+        <span class="brand-mark">V</span>
+        <span>VICTORIA MABEL</span>
+      </a>
+
+      <div class="nav-right">
+        <span class="nav-label">Projecte acadèmic · DIGI</span>
+        <button class="theme-button" id="themeToggle" aria-label="Canviar el tema" title="Canviar el tema">☼</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-content reveal">
+        <div class="eyebrow">Benvinguts al meu projecte de DIGI</div>
+
+        <h1>
+          Victoria
+          <span>Mabel.</span>
+        </h1>
+
+        <p class="intro">
+          Un espai digital dedicat a la investigació, la tecnologia i
+          l'aprenentatge. En aquest projecte exploro i comparo el raïm
+          d'origen ecològic i convencional, utilitzant eines digitals
+          i fonts d'informació científica.
         </p>
-        <div class="d-flex flex-wrap gap-3 mt-4">
-          <a href="ia/" class="btn-main">Accedir a la investigació <i class="fa-solid fa-arrow-right"></i></a>
-          <a href="#sobre-mi" class="btn-outline">Conèixer el projecte <i class="fa-solid fa-angle-down"></i></a>
-        </div>
-        <div class="d-flex gap-4 mt-5 flex-wrap">
-          <div><div class="number">01</div><small class="text-secondary">Agricultura</small></div>
-          <div><div class="number">02</div><small class="text-secondary">Ciència</small></div>
-          <div><div class="number">03</div><small class="text-secondary">Tecnologia</small></div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="art-wrap">
-          <div class="chip one"><i class="fa-solid fa-leaf me-2"></i> CULTIU I NATURA</div>
-          <div class="art-card">
-            <div class="orbit"></div>
-            <img src="logo.png" class="art-logo" alt="Logotip del projecte" onerror="this.style.display='none'">
-            <div class="grape-art">🍇</div>
-            <h2>Vitis vinifera</h2>
-            <p>La ciència darrere de cada gra</p>
-          </div>
-          <div class="chip two"><i class="fa-solid fa-microscope me-2"></i> RECERCA CIENTÍFICA</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
 
-<section class="section" id="sobre-mi">
-  <div class="container">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-4 reveal">
-        <div class="about-panel">
-          <div class="initial mb-4">VM</div>
-          <div class="section-label">L'autora del projecte</div>
-          <h2 class="section-title">Victoria Mabel</h2>
-          <p class="section-lead mb-0">Projecte de l'assignatura de DIGI.</p>
+        <div class="actions">
+          <a class="primary-button" href="ia/">
+            Accedir a la investigació
+            <span class="arrow">↗</span>
+          </a>
+
+          <a class="secondary-button" href="#projecte">
+            Descobrir el projecte ↓
+          </a>
         </div>
       </div>
-      <div class="col-lg-8 reveal">
-        <div class="section-label">01 / Presentació personal</div>
-        <h2 class="section-title">Aprendre investigant.</h2>
-        <p class="section-lead">
-          Aquest web és el punt de partida del meu treball. He creat aquest espai
-          per presentar una investigació que relaciona un producte natural,
-          la seva composició i les eines digitals que ens ajuden a estudiar-lo.
+
+      <div class="visual reveal">
+        <div class="orb"></div>
+
+        <div class="orb-text">
+          <strong>VM</strong>
+          <span>Digital research</span>
+        </div>
+
+        <div class="floating-card">
+          <small>Assignatura</small>
+          <strong>DIGI · Projecte digital</strong>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="preview reveal" id="projecte">
+      <div>
+        <div class="eyebrow">El meu projecte</div>
+        <h2 class="section-heading">Ciència, tecnologia i investigació.</h2>
+      </div>
+
+      <div>
+        <p class="section-copy">
+          La investigació se centra en la comparació del raïm ecològic
+          i convencional (<em>Vitis vinifera</em>). L'objectiu és estudiar
+          la informació nutricional, els compostos presents en el raïm
+          i les diferències que es poden trobar entre els dos tipus de cultiu.
+
+          També es treballa amb eines com ChatGPT i Google Acadèmic
+          per buscar, organitzar i comparar informació.
         </p>
-        <div class="quote mt-4">
-          "La tecnologia ens pot ajudar a trobar informació, però investigar
-          també significa comprovar-la i entendre-la."
+
+        <div class="tags">
+          <span class="tag">Raïm ecològic</span>
+          <span class="tag">Raïm convencional</span>
+          <span class="tag">Google Acadèmic</span>
+          <span class="tag">Intel·ligència artificial</span>
+          <span class="tag">DIGI</span>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+  </main>
 
-<section class="section" id="projecte" style="background:var(--paper);border-block:1px solid var(--line)">
-  <div class="container">
-    <div class="text-center mb-5 reveal">
-      <div class="section-label">02 / El tema</div>
-      <h2 class="section-title">Què investiguem?</h2>
-      <p class="section-lead mx-auto">
-        El centre del projecte és la comparació del raïm ecològic i convencional
-        i la manera com podem estudiar-ne la informació.
-      </p>
+  <footer>
+    <div class="container footer-content">
+      <span>© 2026 · Victoria Mabel</span>
+      <span>Projecte de DIGI · Recerca digital</span>
     </div>
-    <div class="row g-4">
-      <div class="col-md-4 reveal">
-        <article class="paper-card">
-          <div class="icon-box"><i class="fa-solid fa-seedling"></i></div>
-          <h3>Dos tipus de cultiu</h3>
-          <p>Conèixer les característiques de l'agricultura ecològica i de la convencional.</p>
-        </article>
-      </div>
-      <div class="col-md-4 reveal">
-        <article class="paper-card">
-          <div class="icon-box"><i class="fa-solid fa-flask"></i></div>
-          <h3>Composició nutricional</h3>
-          <p>Explorar vitamines, minerals, polifenols i altres compostos del raïm.</p>
-        </article>
-      </div>
-      <div class="col-md-4 reveal">
-        <article class="paper-card">
-          <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
-          <h3>Intel·ligència artificial</h3>
-          <p>Contrastar la informació de ChatGPT amb articles i publicacions acadèmiques.</p>
-        </article>
-      </div>
-    </div>
-  </div>
-</section>
+  </footer>
 
-<section class="section" id="metode">
-  <div class="container">
-    <div class="row g-5 align-items-start">
-      <div class="col-lg-5 reveal">
-        <div class="section-label">03 / Com treballarem</div>
-        <h2 class="section-title">Una investigació pas a pas.</h2>
-        <p class="section-lead">El projecte segueix un recorregut ordenat per buscar, comparar i interpretar informació.</p>
-      </div>
-      <div class="col-lg-7 reveal">
-        <div class="path-line">
-          <div class="path-item"><h3>01 — Buscar informació</h3><p>Consultar fonts científiques i eines digitals.</p></div>
-          <div class="path-item"><h3>02 — Seleccionar dades</h3><p>Identificar quina informació és útil i quina font la proporciona.</p></div>
-          <div class="path-item"><h3>03 — Comparar i analitzar</h3><p>Organitzar els nutrients i estudiar les dades disponibles.</p></div>
-          <div class="path-item"><h3>04 — Elaborar conclusions</h3><p>Explicar què indiquen els resultats i quines limitacions tenen.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  <script>
+    // Barra de progrés
+    const progress = document.getElementById("progress");
 
-<section class="section" id="entrada">
-  <div class="container">
-    <div class="cta reveal">
-      <div class="section-label" style="color:#e4d8f6">EL SEGÜENT PAS</div>
-      <h2 class="mt-3">Entrem dins la investigació.</h2>
-      <p>
-        Explora la part científica del projecte: els dos sistemes de cultiu,
-        els nutrients, la comparació entre ChatGPT i Google Acadèmic,
-        la metodologia, les dades i les fonts consultades.
-      </p>
-      <a href="ia/" class="btn-main mt-3">Obrir la investigació completa <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-  </div>
-</section>
+    window.addEventListener("scroll", () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      const percentage = total > 0 ? (window.scrollY / total) * 100 : 0;
+      progress.style.width = percentage + "%";
+    });
 
-<footer>
-  <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
-    <div><a class="brand" href="#inici">VICTORIA <span>MABEL.</span></a><div class="mt-2">Projecte de DIGI · Raïm & Ciència</div></div>
-    <div class="text-md-end">© 2026 · Treball educatiu<br><a href="#inici">Tornar a l'inici ↑</a></div>
-  </div>
-</footer>
+    // Canvi de tema
+    const themeToggle = document.getElementById("themeToggle");
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-const themeButton = document.getElementById('themeToggle');
-const themeIcon = themeButton.querySelector('i');
-themeButton.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  const dark = document.body.classList.contains('dark');
-  themeIcon.className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-});
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-      observer.unobserve(entry.target);
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      themeToggle.textContent =
+        document.body.classList.contains("light") ? "☾" : "☼";
+    });
+
+    // Animacions d'aparició
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealElements.forEach((element) => observer.observe(element));
+    } else {
+      revealElements.forEach((element) => element.classList.add("visible"));
     }
-  });
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
+  </script>
 </body>
 </html>
 ```
