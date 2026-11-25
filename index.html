@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Projecte de recerca: comparació del raïm ecològic i convencional, els seus nutrients i l'ús de la intel·ligència artificial i Google Acadèmic.">
-<title>Raïm & Ciència | Projecte de recerca</title>
+<meta name="description" content="Projecte de recerca sobre el raïm ecològic i convencional, la intel·ligència artificial i Google Acadèmic.">
+<title>Raïm & Ciència | Inici</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,28 +13,22 @@
 <style>
 :root {
   --bg: #eef0f5;
-  --surface: rgba(255,255,255,.72);
-  --surface-solid: #ffffff;
+  --surface: rgba(255,255,255,.76);
   --text: #20202b;
   --muted: #777986;
   --purple: #8064bd;
-  --purple-dark: #5e478f;
   --border: rgba(120,120,145,.18);
-  --shadow: 0 20px 55px rgba(45,43,65,.10);
-  --silver: linear-gradient(135deg,#ffffff,#dfe2eb 48%,#ffffff);
+  --shadow: 0 20px 55px rgba(45,43,65,.11);
 }
 
 body.dark {
   --bg: #11121a;
-  --surface: rgba(36,37,51,.82);
-  --surface-solid: #252634;
+  --surface: rgba(36,37,51,.88);
   --text: #f3f2fa;
   --muted: #b0afbd;
   --purple: #b39ae9;
-  --purple-dark: #9b7bdc;
   --border: rgba(255,255,255,.10);
-  --shadow: 0 20px 55px rgba(0,0,0,.28);
-  --silver: linear-gradient(135deg,#343543,#22232e,#3a3b49);
+  --shadow: 0 20px 55px rgba(0,0,0,.3);
 }
 
 * { box-sizing: border-box; scroll-behavior: smooth; }
@@ -43,36 +37,34 @@ body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background:
-    radial-gradient(circle at 10% 5%,rgba(153,126,213,.15),transparent 27%),
-    radial-gradient(circle at 90% 35%,rgba(180,185,205,.24),transparent 25%),
+    radial-gradient(circle at 10% 10%,rgba(153,126,213,.17),transparent 28%),
+    radial-gradient(circle at 90% 40%,rgba(180,185,205,.2),transparent 28%),
     var(--bg);
   color: var(--text);
-  transition: background .35s,color .35s;
+  transition: .35s;
 }
-
-a { text-decoration: none; }
 
 .navbar {
   background: var(--surface);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
-  padding: 13px 0;
+  padding: 15px 0;
 }
 
 .brand {
   color: var(--text);
   font-weight: 900;
-  letter-spacing: -.7px;
   font-size: 19px;
+  letter-spacing: -1px;
 }
 
 .brand span { color: var(--purple); }
 
 .nav-link {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  margin: 0 5px;
+  margin: 0 7px;
 }
 
 .nav-link:hover { color: var(--purple); }
@@ -81,16 +73,16 @@ a { text-decoration: none; }
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text);
-  border-radius: 50px;
+  border-radius: 50%;
   width: 42px;
   height: 42px;
 }
 
 .hero {
-  min-height: 690px;
+  min-height: 760px;
   display: flex;
   align-items: center;
-  padding: 110px 0 85px;
+  padding: 130px 0 90px;
   overflow: hidden;
   position: relative;
 }
@@ -98,200 +90,174 @@ a { text-decoration: none; }
 .hero::before {
   content: "";
   position: absolute;
-  width: 440px;
-  height: 440px;
+  width: 600px;
+  height: 600px;
+  right: -170px;
+  top: 40px;
   border-radius: 50%;
-  background: radial-gradient(circle,rgba(147,117,206,.23),transparent 70%);
-  right: -80px;
-  top: 60px;
+  background: radial-gradient(circle,rgba(143,113,201,.22),transparent 70%);
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  padding: 9px 15px;
   border: 1px solid var(--border);
-  border-radius: 50px;
   background: var(--surface);
   color: var(--purple);
-  font-size: 11px;
-  font-weight: 800;
+  border-radius: 50px;
+  padding: 10px 16px;
+  font-size: 10px;
+  font-weight: 900;
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 
 .hero h1 {
   font-family: 'Playfair Display',serif;
-  font-size: clamp(43px,6vw,76px);
-  line-height: 1.05;
-  letter-spacing: -2px;
-  margin: 25px 0;
+  font-size: clamp(48px,6vw,82px);
   font-weight: 800;
+  letter-spacing: -2.5px;
+  line-height: 1.05;
+  margin: 27px 0;
 }
 
 .hero h1 span {
-  background: linear-gradient(100deg,#8064bd,#b4a1df,#777b91);
+  background: linear-gradient(110deg,#8064bd,#b9a7e2,#85899e);
   -webkit-background-clip: text;
   color: transparent;
 }
 
 .hero p {
   color: var(--muted);
-  max-width: 570px;
-  line-height: 1.9;
   font-size: 15px;
+  line-height: 1.9;
+  max-width: 540px;
 }
 
 .primary-btn {
   display: inline-flex;
-  gap: 10px;
   align-items: center;
-  padding: 15px 23px;
-  border-radius: 50px;
+  gap: 12px;
   background: linear-gradient(135deg,#8064bd,#a58bd8);
   color: white;
+  padding: 16px 25px;
+  border-radius: 50px;
   font-size: 13px;
   font-weight: 800;
-  box-shadow: 0 12px 28px rgba(128,100,189,.3);
+  box-shadow: 0 12px 30px rgba(128,100,189,.32);
   transition: .3s;
+  text-decoration: none;
 }
 
 .primary-btn:hover {
   color: white;
-  transform: translateY(-4px);
-  box-shadow: 0 18px 35px rgba(128,100,189,.4);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px rgba(128,100,189,.4);
 }
 
 .secondary-btn {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  padding: 14px 20px;
-  border-radius: 50px;
+  gap: 10px;
+  padding: 15px 22px;
   border: 1px solid var(--border);
+  border-radius: 50px;
+  background: var(--surface);
   color: var(--text);
   font-size: 13px;
   font-weight: 800;
-  background: var(--surface);
+  text-decoration: none;
 }
 
-.hero-visual {
+.visual-stage {
+  perspective: 1100px;
   position: relative;
-  perspective: 1000px;
   padding: 25px;
 }
 
-.grape-card {
-  position: relative;
-  background: var(--silver);
-  border: 1px solid rgba(255,255,255,.8);
-  border-radius: 35px;
+.main-object {
+  min-height: 460px;
+  border-radius: 38px;
   padding: 35px;
-  min-height: 390px;
-  box-shadow: 25px 35px 70px rgba(55,50,80,.18), inset 0 2px 3px white;
-  transform: rotateY(-9deg) rotateX(4deg);
-  transition: .5s;
+  background: linear-gradient(135deg,#fff,#e2e3eb 48%,#fff);
+  border: 1px solid white;
+  box-shadow: 25px 35px 75px rgba(50,45,75,.2),inset 0 2px 4px white;
+  transform: rotateY(-10deg) rotateX(5deg);
+  transition: .6s;
+  position: relative;
+  overflow: hidden;
 }
 
-.grape-card:hover { transform: rotateY(0) rotateX(0) translateY(-8px); }
-
-.grape-art {
-  font-size: 145px;
-  text-align: center;
-  filter: drop-shadow(12px 18px 12px rgba(65,35,100,.25));
-  animation: float 4s ease-in-out infinite;
+.main-object:hover {
+  transform: rotateY(0) rotateX(0) translateY(-8px);
 }
 
-@keyframes float {
-  0%,100% { transform: translateY(0) rotate(-3deg); }
-  50% { transform: translateY(-15px) rotate(3deg); }
-}
-
-.floating-label {
+.object-light {
   position: absolute;
-  background: var(--surface-solid);
-  border: 1px solid var(--border);
-  border-radius: 15px;
-  padding: 12px 16px;
-  box-shadow: var(--shadow);
-  font-size: 11px;
-  font-weight: 800;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle,rgba(145,116,204,.25),transparent 70%);
+  top: -100px;
+  right: -70px;
 }
 
-.label-one { top: 28px; left: -10px; }
-.label-two { bottom: 30px; right: -5px; }
+.logo-image {
+  display: block;
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  margin: 0 auto 10px;
+  position: relative;
+  z-index: 1;
+}
 
-.hero-caption {
+.grape {
+  font-size: 155px;
   text-align: center;
-  color: var(--muted);
-  font-size: 11px;
-  margin-top: 12px;
+  filter: drop-shadow(12px 18px 12px rgba(60,35,90,.24));
+  animation: floating 4s ease-in-out infinite;
 }
 
-section { padding: 95px 0; }
+@keyframes floating {
+  0%,100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-17px) rotate(4deg); }
+}
 
-.section-tag {
-  color: var(--purple);
+.main-object h3 {
+  color: #292637;
+  font-weight: 900;
+  text-align: center;
+  font-size: 25px;
+  position: relative;
+}
+
+.main-object p {
+  color: #777486;
+  text-align: center;
+  font-size: 12px;
+  margin: 10px auto;
+}
+
+.floating-chip {
+  position: absolute;
+  padding: 13px 16px;
+  background: white;
+  color: #494354;
+  border: 1px solid #e7e4ef;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(30,25,55,.13);
   font-size: 11px;
   font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  z-index: 2;
 }
 
-.section-title {
-  font-family: 'Playfair Display',serif;
-  font-size: clamp(32px,4vw,48px);
-  font-weight: 800;
-  margin: 12px 0 18px;
-}
+.chip-a { top: 10px; left: -5px; }
+.chip-b { bottom: 25px; right: -5px; }
 
-.section-description {
-  max-width: 680px;
-  color: var(--muted);
-  line-height: 1.9;
-  font-size: 14px;
-}
-
-.glass-card {
-  height: 100%;
-  background: var(--surface);
-  backdrop-filter: blur(15px);
-  border: 1px solid var(--border);
-  border-radius: 25px;
-  padding: 27px;
-  box-shadow: var(--shadow);
-  transition: .35s;
-}
-
-.glass-card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 25px 55px rgba(60,50,90,.15);
-}
-
-.card-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 17px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg,rgba(128,100,189,.18),rgba(180,165,215,.32));
-  color: var(--purple);
-  font-size: 21px;
-  margin-bottom: 20px;
-}
-
-.glass-card h3 {
-  font-size: 18px;
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-
-.glass-card p {
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 13px;
-  margin: 0;
+.section {
+  padding: 100px 0;
 }
 
 .soft-section {
@@ -300,182 +266,151 @@ section { padding: 95px 0; }
   border-bottom: 1px solid var(--border);
 }
 
-.comparison-card {
-  border-radius: 28px;
-  padding: 32px;
+.section-tag {
+  color: var(--purple);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: 'Playfair Display',serif;
+  font-size: clamp(34px,4vw,50px);
+  font-weight: 800;
+  margin: 13px 0 18px;
+}
+
+.section-description {
+  max-width: 690px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.glass-card {
   height: 100%;
+  padding: 30px;
+  border-radius: 26px;
   background: var(--surface);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+  backdrop-filter: blur(15px);
+  transition: .35s;
 }
 
-.comparison-card .fruit {
-  font-size: 52px;
+.glass-card:hover {
+  transform: translateY(-9px);
+  box-shadow: 0 25px 55px rgba(60,50,90,.17);
+}
+
+.card-icon {
+  display: grid;
+  place-items: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 18px;
+  background: linear-gradient(135deg,rgba(128,100,189,.2),rgba(180,165,215,.35));
+  color: var(--purple);
+  font-size: 22px;
+  margin-bottom: 22px;
+}
+
+.glass-card h3 {
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 13px;
+}
+
+.glass-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.feature-number {
+  font-family: 'Playfair Display',serif;
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--purple);
   margin-bottom: 12px;
 }
 
-.comparison-card h3 {
-  font-weight: 900;
-  font-size: 21px;
-}
-
-.comparison-card p {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.8;
-}
-
-.comparison-card.eco { border-top: 4px solid #75a985; }
-.comparison-card.conv { border-top: 4px solid #8e82b9; }
-
-.comparison-note {
-  padding: 20px;
-  border-radius: 18px;
-  background: rgba(128,100,189,.10);
-  color: var(--text);
-  font-size: 13px;
-  line-height: 1.8;
-}
-
-.nutrient-row {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  padding: 17px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.nutrient-row:last-child { border: 0; }
-
-.nutrient-icon {
-  width: 43px;
-  height: 43px;
-  border-radius: 14px;
-  background: rgba(128,100,189,.13);
-  display: grid;
-  place-items: center;
-  color: var(--purple);
-  flex-shrink: 0;
-}
-
-.nutrient-row h4 {
-  font-size: 14px;
-  font-weight: 800;
-  margin: 0 0 5px;
-}
-
-.nutrient-row p {
-  color: var(--muted);
-  font-size: 12px;
-  margin: 0;
-  line-height: 1.7;
-}
-
-.table-wrap {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 22px;
+.big-banner {
+  background: linear-gradient(135deg,#fff,#dedee9 48%,#f8f7fc);
+  border: 1px solid white;
+  color: #282536;
+  border-radius: 35px;
+  padding: 48px;
+  box-shadow: var(--shadow);
   overflow: hidden;
-  box-shadow: var(--shadow);
+  position: relative;
 }
 
-.table { margin: 0; color: var(--text); font-size: 13px; }
-.table th {
-  background: rgba(128,100,189,.13);
-  color: var(--text);
-  padding: 17px;
-}
-.table td { padding: 16px; border-color: var(--border); color: var(--muted); }
-
-.chart-frame {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 28px;
-  padding: 25px;
-  box-shadow: var(--shadow);
+.big-banner h2 {
+  font-family: 'Playfair Display',serif;
+  font-weight: 800;
+  font-size: clamp(32px,4vw,48px);
 }
 
-.chart-frame img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 14px;
+.big-banner p {
+  color: #777486;
+  font-size: 14px;
+  line-height: 1.9;
 }
 
-.chart-placeholder {
+.banner-grape {
+  font-size: 125px;
   text-align: center;
-  padding: 55px 20px;
-  color: var(--muted);
+  filter: drop-shadow(10px 15px 10px #7775);
 }
 
-.method-step {
+.step-card {
   display: flex;
-  gap: 18px;
+  gap: 17px;
+  align-items: flex-start;
   margin-bottom: 25px;
 }
 
-.step-number {
-  width: 43px;
-  height: 43px;
+.step-icon {
   flex-shrink: 0;
-  border-radius: 15px;
-  background: linear-gradient(135deg,#8064bd,#b3a1dc);
-  color: white;
   display: grid;
   place-items: center;
-  font-weight: 900;
-}
-
-.method-step h4 { font-size: 15px; font-weight: 800; }
-.method-step p { color: var(--muted); font-size: 13px; line-height: 1.8; }
-
-.source-link {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 17px;
-  color: var(--text);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 17px;
-  margin-bottom: 12px;
-  transition: .3s;
-}
-
-.source-link:hover {
-  transform: translateX(5px);
-  border-color: var(--purple);
+  width: 45px;
+  height: 45px;
+  border-radius: 15px;
+  background: rgba(128,100,189,.15);
   color: var(--purple);
 }
 
-.source-link i { font-size: 22px; color: var(--purple); }
-.source-link strong { display: block; font-size: 13px; }
-.source-link small { color: var(--muted); font-size: 11px; }
-
-.conclusion {
-  background: var(--silver);
-  color: #292737;
-  border-radius: 32px;
-  padding: 45px;
-  box-shadow: var(--shadow);
-  position: relative;
-  overflow: hidden;
+.step-card h4 {
+  font-size: 14px;
+  font-weight: 900;
 }
 
-.conclusion h2 {
-  font-family: 'Playfair Display',serif;
-  font-size: 38px;
-  font-weight: 800;
+.step-card p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
 }
 
-.conclusion p { color: #646273; line-height: 1.9; font-size: 14px; }
+.final-note {
+  color: var(--muted);
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: auto;
+}
 
 footer {
-  border-top: 1px solid var(--border);
   padding: 35px 0;
+  border-top: 1px solid var(--border);
   color: var(--muted);
   font-size: 12px;
 }
+
+footer a { color: var(--purple); text-decoration: none; }
 
 .reveal {
   opacity: 0;
@@ -489,16 +424,20 @@ footer {
 }
 
 @media(max-width:767px) {
-  .hero { padding-top: 90px; min-height: auto; }
-  .hero-visual { margin-top: 35px; }
-  .grape-card { min-height: 290px; }
-  .grape-art { font-size: 110px; }
-  section { padding: 70px 0; }
-  .conclusion { padding: 28px; }
-  .navbar .container { flex-wrap: wrap; }
+  .hero { padding-top: 110px; min-height: auto; }
+  .visual-stage { margin-top: 25px; }
+  .main-object { min-height: 370px; }
+  .grape { font-size: 120px; }
+  .section { padding: 70px 0; }
+  .big-banner { padding: 28px; }
 }
+
 @media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+  *,*::before,*::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
   .reveal { opacity: 1; transform: none; }
 }
 </style>
@@ -516,12 +455,10 @@ footer {
 
     <div class="collapse navbar-collapse" id="menu">
       <ul class="navbar-nav ms-auto align-items-lg-center">
-        <li class="nav-item"><a class="nav-link" href="#projecte">Projecte</a></li>
-        <li class="nav-item"><a class="nav-link" href="#comparacio">Comparació</a></li>
-        <li class="nav-item"><a class="nav-link" href="#nutrients">Nutrients</a></li>
-        <li class="nav-item"><a class="nav-link" href="#resultats">Resultats</a></li>
-        <li class="nav-item"><a class="nav-link" href="#metode">Metodologia</a></li>
-        <li class="nav-item"><a class="nav-link" href="#fonts">Fonts</a></li>
+        <li class="nav-item"><a class="nav-link" href="#presentacio">Presentació</a></li>
+        <li class="nav-item"><a class="nav-link" href="#objectius">Objectius</a></li>
+        <li class="nav-item"><a class="nav-link" href="#proces">Procés</a></li>
+        <li class="nav-item"><a class="nav-link" href="#investigacio">Investigació</a></li>
         <li class="nav-item ms-lg-3">
           <button class="theme-btn" id="themeToggle" aria-label="Canviar el tema">
             <i class="fa-solid fa-moon"></i>
@@ -536,468 +473,257 @@ footer {
   <div class="container">
     <div class="row align-items-center g-5">
       <div class="col-lg-6">
-        <div class="eyebrow"><i class="fa-solid fa-flask"></i> Projecte de recerca · Ciència i tecnologia</div>
+        <div class="eyebrow">
+          <i class="fa-solid fa-atom"></i>
+          Projecte de recerca · 2026
+        </div>
 
-        <h1>El raïm: <span>ecològic</span> o convencional?</h1>
+        <h1>La ciència darrere del <span>raïm.</span></h1>
 
         <p>
-          Una investigació sobre els nutrients del raïm, les diferències entre els sistemes de cultiu
-          i el paper de la intel·ligència artificial i Google Acadèmic en la recerca d'informació científica.
+          Una investigació sobre el raïm ecològic i convencional.
+          Descobrim els seus nutrients, comparem informació científica
+          i explorem les possibilitats de la intel·ligència artificial.
         </p>
 
         <div class="d-flex flex-wrap gap-3 mt-4">
-          <a href="#projecte" class="primary-btn">Descobrir el projecte <i class="fa-solid fa-arrow-down"></i></a>
-          <a href="#resultats" class="secondary-btn">Veure els resultats <i class="fa-solid fa-chart-column"></i></a>
+          <a href="ia/" class="primary-btn">
+            Entrar a la investigació
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#presentacio" class="secondary-btn">
+            Descobrir el projecte
+            <i class="fa-solid fa-angle-down"></i>
+          </a>
         </div>
       </div>
 
       <div class="col-lg-6">
-        <div class="hero-visual">
-          <div class="grape-card">
-            <div class="floating-label label-one"><i class="fa-solid fa-leaf"></i> Agricultura ecològica</div>
-            <div class="grape-art">🍇</div>
-            <div class="text-center">
-              <h3 class="fw-bold">Vitis vinifera</h3>
-              <p class="text-secondary small mb-0">Una fruita, dues formes de cultiu, una investigació</p>
-            </div>
-            <div class="floating-label label-two"><i class="fa-solid fa-microscope"></i> Anàlisi científica</div>
+        <div class="visual-stage">
+          <div class="floating-chip chip-a">
+            <i class="fa-solid fa-leaf me-2"></i> Agricultura
           </div>
-          <div class="hero-caption">Estudi comparatiu del raïm i dels seus components nutricionals</div>
+
+          <div class="main-object">
+            <div class="object-light"></div>
+            <img src="logo.png" alt="Logotip del projecte" class="logo-image"
+                 onerror="this.style.display='none'">
+            <div class="grape">🍇</div>
+            <h3>Vitis vinifera</h3>
+            <p>Ecologia · Nutrició · Tecnologia</p>
+          </div>
+
+          <div class="floating-chip chip-b">
+            <i class="fa-solid fa-microscope me-2"></i> Recerca científica
+          </div>
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<section id="projecte">
+<section class="section" id="presentacio">
   <div class="container">
     <div class="text-center mb-5 reveal">
-      <div class="section-tag">01 · Introducció</div>
-      <h2 class="section-title">Què volem investigar?</h2>
+      <div class="section-tag">01 · Presentació</div>
+      <h2 class="section-title">Benvinguts al projecte</h2>
       <p class="section-description mx-auto">
-        El raïm és una fruita que conté aigua, sucres, vitamines, minerals i compostos antioxidants.
-        En aquest treball volem estudiar si el sistema de cultiu pot influir en la seva composició.
+        Aquest espai presenta una investigació que combina alimentació,
+        agricultura i tecnologia per estudiar les possibles diferències
+        entre el raïm ecològic i el convencional.
       </p>
     </div>
 
     <div class="row g-4">
       <div class="col-md-4 reveal">
         <div class="glass-card">
-          <div class="card-icon"><i class="fa-solid fa-bullseye"></i></div>
-          <h3>Objectiu</h3>
-          <p>Comparar la composició nutricional del raïm ecològic i del convencional i analitzar les dades disponibles.</p>
+          <div class="card-icon"><i class="fa-solid fa-seedling"></i></div>
+          <h3>Agricultura</h3>
+          <p>Estudiem dos sistemes de producció i les seves característiques principals.</p>
         </div>
       </div>
+
       <div class="col-md-4 reveal">
         <div class="glass-card">
-          <div class="card-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-          <h3>Investigació</h3>
-          <p>Consultar informació científica i comparar-la amb les respostes generades per la intel·ligència artificial.</p>
+          <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
+          <h3>Ciència</h3>
+          <p>Investiguem nutrients, vitamines, minerals i compostos antioxidants.</p>
         </div>
       </div>
+
       <div class="col-md-4 reveal">
-        <div class="glass-card">
-          <div class="card-icon"><i class="fa-solid fa-lightbulb"></i></div>
-          <h3>Finalitat</h3>
-          <p>Entendre les possibles diferències i aprendre a valorar la fiabilitat de les fonts d'informació.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="soft-section" id="comparacio">
-  <div class="container">
-    <div class="text-center mb-5 reveal">
-      <div class="section-tag">02 · Sistemes de cultiu</div>
-      <h2 class="section-title">Dues formes de producció</h2>
-      <p class="section-description mx-auto">
-        La principal diferència entre aquests dos sistemes es troba en les normes i els mètodes
-        utilitzats durant el cultiu.
-      </p>
-    </div>
-
-    <div class="row g-4">
-      <div class="col-md-6 reveal">
-        <div class="comparison-card eco">
-          <div class="fruit">🌿</div>
-          <h3>Raïm ecològic</h3>
-          <p>
-            Es produeix seguint les normes de l'agricultura ecològica. Aquest sistema restringeix
-            l'ús de pesticides i fertilitzants de síntesi química i prioritza determinades pràctiques
-            de gestió del sòl i de la biodiversitat.
-          </p>
-          <div class="mt-3 fw-bold small">Característiques principals</div>
-          <ul class="small text-secondary mt-2">
-            <li>Normes específiques de producció ecològica.</li>
-            <li>Ús limitat de productes autoritzats.</li>
-            <li>Atenció a la fertilitat del sòl i l'ecosistema.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="col-md-6 reveal">
-        <div class="comparison-card conv">
-          <div class="fruit">🍇</div>
-          <h3>Raïm convencional</h3>
-          <p>
-            Es cultiva mitjançant tècniques agrícoles convencionals. Pot utilitzar fertilitzants
-            i productes fitosanitaris autoritzats per protegir els cultius i controlar les plagues.
-          </p>
-          <div class="mt-3 fw-bold small">Característiques principals</div>
-          <ul class="small text-secondary mt-2">
-            <li>Ús de tècniques agrícoles convencionals.</li>
-            <li>Aplicació de productes autoritzats segons la normativa.</li>
-            <li>Gestió del cultiu orientada a la producció.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="comparison-note mt-4 reveal">
-      <strong><i class="fa-solid fa-circle-info me-2"></i>Important:</strong>
-      que un producte sigui ecològic no significa automàticament que tingui més vitamines
-      o minerals. La composició també depèn de la varietat, el clima, el sòl, la maduració,
-      l'emmagatzematge i altres factors.
-    </div>
-  </div>
-</section>
-
-<section id="nutrients">
-  <div class="container">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-5 reveal">
-        <div class="section-tag">03 · Composició nutricional</div>
-        <h2 class="section-title">Què conté el raïm?</h2>
-        <p class="section-description">
-          El raïm conté diferents substàncies que contribueixen al seu valor nutricional.
-          En la investigació és important distingir entre nutrients i compostos bioactius.
-        </p>
-        <div class="glass-card mt-4">
-          <div class="card-icon"><i class="fa-solid fa-apple-whole"></i></div>
-          <h3>Una composició variada</h3>
-          <p>La quantitat de cada component pot variar segons la varietat del raïm i les condicions de producció.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-7 reveal">
-        <div class="glass-card">
-          <div class="nutrient-row">
-            <div class="nutrient-icon"><i class="fa-solid fa-droplet"></i></div>
-            <div>
-              <h4>Aigua</h4>
-              <p>És el component majoritari del raïm fresc i contribueix a la hidratació.</p>
-            </div>
-          </div>
-          <div class="nutrient-row">
-            <div class="nutrient-icon"><i class="fa-solid fa-bolt"></i></div>
-            <div>
-              <h4>Hidrats de carboni</h4>
-              <p>Principalment glucosa i fructosa, sucres que aporten energia.</p>
-            </div>
-          </div>
-          <div class="nutrient-row">
-            <div class="nutrient-icon"><i class="fa-solid fa-shield-heart"></i></div>
-            <div>
-              <h4>Polifenols</h4>
-              <p>Compostos vegetals que inclouen flavonoides i altres substàncies amb activitat antioxidant.</p>
-            </div>
-          </div>
-          <div class="nutrient-row">
-            <div class="nutrient-icon"><i class="fa-solid fa-leaf"></i></div>
-            <div>
-              <h4>Vitamines</h4>
-              <p>Pot contenir vitamines com la vitamina C i algunes del grup B, en quantitats variables.</p>
-            </div>
-          </div>
-          <div class="nutrient-row">
-            <div class="nutrient-icon"><i class="fa-solid fa-gem"></i></div>
-            <div>
-              <h4>Minerals</h4>
-              <p>Conté minerals com el potassi i petites quantitats d'altres minerals.</p>
-            </div>
-          </div>
-          <div class="nutrient-row">
-            <div class="nutrient-icon"><i class="fa-solid fa-seedling"></i></div>
-            <div>
-              <h4>Fibra</h4>
-              <p>Es troba especialment a la pell i contribueix al funcionament digestiu.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="soft-section">
-  <div class="container">
-    <div class="text-center mb-5 reveal">
-      <div class="section-tag">04 · Comparació</div>
-      <h2 class="section-title">Què hem de comparar?</h2>
-      <p class="section-description mx-auto">
-        Per fer una comparació científica, cal estudiar els mateixos components i utilitzar
-        dades obtingudes amb mètodes compatibles.
-      </p>
-    </div>
-
-    <div class="table-wrap reveal">
-      <div class="table-responsive">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Component</th>
-              <th>Què analitzem?</th>
-              <th>Què cal tenir en compte?</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Vitamina C</strong></td>
-              <td>Quantitat de vitamina C</td>
-              <td>Varietat i conservació</td>
-            </tr>
-            <tr>
-              <td><strong>Polifenols</strong></td>
-              <td>Concentració de compostos fenòlics</td>
-              <td>Pell, llavors i maduració</td>
-            </tr>
-            <tr>
-              <td><strong>Potassi</strong></td>
-              <td>Contingut mineral</td>
-              <td>Composició del sòl i del fruit</td>
-            </tr>
-            <tr>
-              <td><strong>Fibra</strong></td>
-              <td>Quantitat de fibra alimentària</td>
-              <td>Part de la fruita analitzada</td>
-            </tr>
-            <tr>
-              <td><strong>Sucres</strong></td>
-              <td>Glucosa i fructosa</td>
-              <td>Grau de maduració</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <p class="text-secondary small mt-3">Aquesta taula presenta els aspectes que s'han d'estudiar; no representa resultats mesurats.</p>
-  </div>
-</section>
-
-<section id="resultats">
-  <div class="container">
-    <div class="text-center mb-5 reveal">
-      <div class="section-tag">05 · Dades i resultats</div>
-      <h2 class="section-title">Visualització de la investigació</h2>
-      <p class="section-description mx-auto">
-        En aquest apartat es mostra el gràfic del treball per facilitar la lectura
-        i la comparació de les dades obtingudes.
-      </p>
-    </div>
-
-    <div class="chart-frame reveal">
-      <img src="grafic-raim.png" alt="Gràfic de la comparació del raïm ecològic i convencional"
-           onerror="this.style.display='none';document.getElementById('chartMissing').style.display='block';">
-      <div id="chartMissing" class="chart-placeholder" style="display:none">
-        <i class="fa-solid fa-chart-column fa-3x mb-3"></i>
-        <h4>No s'ha pogut carregar el gràfic</h4>
-        <p>Comprova que el fitxer grafic-raim.png estigui dins la carpeta ia.</p>
-      </div>
-    </div>
-
-    <div class="comparison-note mt-4 reveal">
-      <strong>Com interpretar les dades:</strong>
-      cal observar les unitats, la mida de la mostra i el mètode d'anàlisi.
-      Una diferència entre dues mitjanes no demostra per si sola que el sistema de cultiu
-      sigui la causa.
-    </div>
-  </div>
-</section>
-
-<section class="soft-section" id="metode">
-  <div class="container">
-    <div class="text-center mb-5 reveal">
-      <div class="section-tag">06 · Procés científic</div>
-      <h2 class="section-title">Com hem fet la investigació?</h2>
-      <p class="section-description mx-auto">
-        Una recerca necessita passos ordenats per obtenir informació clara i poder valorar-ne la fiabilitat.
-      </p>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-6 reveal">
-        <div class="method-step">
-          <div class="step-number">01</div>
-          <div>
-            <h4>Definir la pregunta</h4>
-            <p>Establir què volem comparar: la composició nutricional del raïm ecològic i convencional.</p>
-          </div>
-        </div>
-        <div class="method-step">
-          <div class="step-number">02</div>
-          <div>
-            <h4>Buscar informació</h4>
-            <p>Consultar estudis científics i fonts fiables relacionades amb el raïm i els seus nutrients.</p>
-          </div>
-        </div>
-        <div class="method-step">
-          <div class="step-number">03</div>
-          <div>
-            <h4>Organitzar les dades</h4>
-            <p>Registrar els valors, les unitats, les mostres i les característiques de cada estudi.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-6 reveal">
-        <div class="method-step">
-          <div class="step-number">04</div>
-          <div>
-            <h4>Comparar els resultats</h4>
-            <p>Analitzar les diferències i comprovar si les dades són realment comparables.</p>
-          </div>
-        </div>
-        <div class="method-step">
-          <div class="step-number">05</div>
-          <div>
-            <h4>Interpretar les dades</h4>
-            <p>Tenir en compte la mitjana, la desviació estàndard i la mida de la mostra quan estiguin disponibles.</p>
-          </div>
-        </div>
-        <div class="method-step">
-          <div class="step-number">06</div>
-          <div>
-            <h4>Extreure conclusions</h4>
-            <p>Respondre la pregunta inicial sense afirmar més del que permeten les dades.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="text-center mb-5 reveal">
-      <div class="section-tag">07 · Eines d'investigació</div>
-      <h2 class="section-title">ChatGPT i Google Acadèmic</h2>
-      <p class="section-description mx-auto">
-        Dues eines diferents que poden ajudar en una investigació, però que no tenen la mateixa funció.
-      </p>
-    </div>
-
-    <div class="row g-4">
-      <div class="col-md-6 reveal">
         <div class="glass-card">
           <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
-          <h3>Intel·ligència artificial</h3>
-          <p>
-            ChatGPT pot ajudar a explicar conceptes, resumir informació, organitzar idees
-            i orientar una recerca. Tot i això, les seves respostes s'han de verificar
-            amb fonts fiables perquè pot cometre errors.
-          </p>
+          <h3>Tecnologia</h3>
+          <p>Compare m la informació de ChatGPT amb la que podem trobar en estudis científics.</p>
         </div>
       </div>
-      <div class="col-md-6 reveal">
-        <div class="glass-card">
-          <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-          <h3>Google Acadèmic</h3>
-          <p>
-            Permet localitzar articles científics, tesis i altres publicacions acadèmiques.
-            És útil per consultar estudis originals i comprovar d'on provenen les dades.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="comparison-note mt-4 reveal">
-      <strong>La idea principal:</strong> la intel·ligència artificial pot facilitar la comprensió,
-      mentre que les publicacions científiques permeten consultar les investigacions originals.
-      Les dues eines s'han d'utilitzar de manera crítica.
     </div>
   </div>
 </section>
 
-<section class="soft-section" id="fonts">
+<section class="soft-section section" id="objectius">
   <div class="container">
     <div class="text-center mb-5 reveal">
-      <div class="section-tag">08 · Bibliografia</div>
-      <h2 class="section-title">Fonts i recursos</h2>
+      <div class="section-tag">02 · Objectius</div>
+      <h2 class="section-title">Què volem aconseguir?</h2>
       <p class="section-description mx-auto">
-        Per donar credibilitat al treball, és important consultar fonts científiques
-        i organismes oficials.
+        El projecte busca respondre preguntes a partir d'informació,
+        dades i una anàlisi crítica dels resultats.
       </p>
     </div>
 
-    <div class="row">
-      <div class="col-lg-6 reveal">
-        <a class="source-link" href="https://scholar.google.com/" target="_blank" rel="noopener">
-          <i class="fa-solid fa-graduation-cap"></i>
-          <span><strong>Google Acadèmic</strong><small>Cercador de publicacions científiques</small></span>
-          <i class="fa-solid fa-arrow-up-right-from-square ms-auto"></i>
-        </a>
-        <a class="source-link" href="https://www.fao.org/" target="_blank" rel="noopener">
-          <i class="fa-solid fa-earth-europe"></i>
-          <span><strong>FAO</strong><small>Organització de les Nacions Unides per a l'Alimentació i l'Agricultura</small></span>
-          <i class="fa-solid fa-arrow-up-right-from-square ms-auto"></i>
-        </a>
+    <div class="row g-4">
+      <div class="col-md-6 reveal">
+        <div class="glass-card">
+          <div class="feature-number">01</div>
+          <h3>Comparar els dos cultius</h3>
+          <p>Estudiar les diferències entre la producció ecològica i la convencional.</p>
+        </div>
       </div>
-      <div class="col-lg-6 reveal">
-        <a class="source-link" href="https://food.ec.europa.eu/" target="_blank" rel="noopener">
-          <i class="fa-solid fa-leaf"></i>
-          <span><strong>Comissió Europea · Alimentació</strong><small>Informació sobre producció i normativa alimentària</small></span>
-          <i class="fa-solid fa-arrow-up-right-from-square ms-auto"></i>
-        </a>
-        <a class="source-link" href="https://www.who.int/" target="_blank" rel="noopener">
-          <i class="fa-solid fa-heart-pulse"></i>
-          <span><strong>Organització Mundial de la Salut</strong><small>Informació general sobre alimentació i salut</small></span>
-          <i class="fa-solid fa-arrow-up-right-from-square ms-auto"></i>
-        </a>
+
+      <div class="col-md-6 reveal">
+        <div class="glass-card">
+          <div class="feature-number">02</div>
+          <h3>Analitzar els nutrients</h3>
+          <p>Investigar la composició nutricional i els compostos presents en el raïm.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 reveal">
+        <div class="glass-card">
+          <div class="feature-number">03</div>
+          <h3>Verificar la informació</h3>
+          <p>Contrastar les respostes de la intel·ligència artificial amb fonts científiques.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 reveal">
+        <div class="glass-card">
+          <div class="feature-number">04</div>
+          <h3>Extreure conclusions</h3>
+          <p>Interpretar les dades sense confondre una diferència amb una relació de causa i efecte.</p>
+        </div>
       </div>
     </div>
-
-    <p class="text-secondary small mt-3">
-      Nota: aquests enllaços són portals de consulta. La bibliografia final ha d'incloure
-      els articles concrets que s'han utilitzat, amb autor, any, títol i DOI o enllaç.
-    </p>
   </div>
 </section>
 
-<section>
-  <div class="container reveal">
-    <div class="conclusion">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-8">
-          <div class="section-tag">09 · Reflexió final</div>
-          <h2>La ciència es basa en les dades.</h2>
-          <p class="mt-3">
-            Comparar el raïm ecològic i convencional requereix estudiar els seus components
-            i les condicions en què s'ha produït. No n'hi ha prou amb observar una diferència:
-            cal comprovar com s'han obtingut les dades i si els resultats són fiables.
-            La intel·ligència artificial pot ajudar en el procés, però les fonts científiques
-            continuen sent essencials per arribar a conclusions ben fonamentades.
-          </p>
+<section class="section" id="proces">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal">
+        <div class="section-tag">03 · Metodologia</div>
+        <h2 class="section-title">De la pregunta a la conclusió</h2>
+        <p class="section-description">
+          Una investigació necessita un procés ordenat.
+          Aquests són alguns dels passos principals del projecte.
+        </p>
+
+        <div class="mt-4">
+          <div class="step-card">
+            <div class="step-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <div>
+              <h4>Recerca d'informació</h4>
+              <p>Consultar fonts acadèmiques i informació relacionada amb el raïm.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon"><i class="fa-solid fa-table"></i></div>
+            <div>
+              <h4>Organització de dades</h4>
+              <p>Ordenar els nutrients, les mesures i els resultats disponibles.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <div>
+              <h4>Anàlisi i comparació</h4>
+              <p>Interpretar els resultats i valorar-ne la fiabilitat.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon"><i class="fa-solid fa-lightbulb"></i></div>
+            <div>
+              <h4>Conclusions</h4>
+              <p>Respondre la pregunta inicial a partir de les dades estudiades.</p>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-4 text-center">
-          <div style="font-size:100px;filter:drop-shadow(8px 12px 10px #7775)">🍇</div>
-          <div class="fw-bold">Vitis vinifera</div>
-          <small class="text-secondary">Recerca · Anàlisi · Coneixement</small>
+      </div>
+
+      <div class="col-lg-6 reveal">
+        <div class="big-banner">
+          <div class="banner-grape">🍇</div>
+          <h2>Investigar és aprendre a preguntar.</h2>
+          <p>
+            No es tracta només de trobar una resposta, sinó de comprovar
+            d'on prové la informació, com s'han obtingut les dades
+            i què podem concloure realment.
+          </p>
+          <a href="ia/" class="primary-btn mt-3">
+            Veure la investigació
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="soft-section section" id="investigacio">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="section-tag">04 · Explora</div>
+      <h2 class="section-title">Entra dins la investigació</h2>
+      <p class="section-description mx-auto">
+        Descobreix els continguts, les comparacions i les eines utilitzades
+        en el desenvolupament del projecte.
+      </p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8 reveal">
+        <div class="glass-card text-center p-5">
+          <div class="card-icon mx-auto"><i class="fa-solid fa-book-open"></i></div>
+          <h3 class="mb-3">La investigació completa</h3>
+          <p class="mb-4">
+            Consulta la comparació entre el raïm ecològic i convencional,
+            els nutrients, les dades, la metodologia i les fonts científiques.
+          </p>
+          <a href="ia/" class="primary-btn">
+            Accedir al projecte complet
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container reveal">
+    <p class="final-note">
+      La informació científica s'ha d'interpretar amb criteri.
+      Les dades, les fonts i els mètodes utilitzats són essencials
+      per construir conclusions fiables.
+      <br><strong style="color:var(--purple)">RAÏM & CIÈNCIA · Projecte de recerca</strong>
+    </p>
   </div>
 </section>
 
 <footer>
   <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
     <div>
-      <strong class="brand">RAÏM <span>& CIÈNCIA.</span></strong>
+      <a class="brand" href="#inici">RAÏM <span>& CIÈNCIA.</span></a>
       <div class="mt-2">Projecte educatiu de recerca científica</div>
     </div>
     <div class="text-md-end">
-      <div>© 2026 · Treball de recerca</div>
-      <a href="#inici" class="text-decoration-none" style="color:var(--purple)">Tornar a l'inici ↑</a>
+      <div>© 2026 · Projecte de recerca</div>
+      <a href="#inici">Tornar a l'inici ↑</a>
     </div>
   </div>
 </footer>
