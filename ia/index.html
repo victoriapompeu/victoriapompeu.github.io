@@ -1,450 +1,438 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Treball de recerca sobre la intel·ligència artificial, Google Acadèmic i la comparació del raïm ecològic i convencional.">
-  <title>Victoria Mabel | IA i Google Acadèmic</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Treball de recerca sobre la intel·ligència artificial, Google Acadèmic i el raïm ecològic i convencional.">
+<title>Victoria Mabel | IA i Google Acadèmic</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
 
-  <style>
-    body {
-      transition: background-color .3s, color .3s;
-      line-height: 1.7;
-    }
+<style>
+:root {
+  --purple: #9270d9;
+  --silver: #d9dce5;
+  --dark: #10111a;
+  --panel: rgba(255,255,255,.07);
+}
 
-    .navbar {
-      background: var(--bs-body-bg);
-    }
+* { box-sizing: border-box; scroll-behavior: smooth; }
 
-    .logo {
-      width: 45px;
-      height: 45px;
-      object-fit: cover;
-    }
+body {
+  background: #f0f1f6;
+  color: #242432;
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.75;
+  transition: .35s;
+}
 
-    #themeToggle {
-      border: 0;
-      background: transparent;
-      color: inherit;
-      font-size: 1.3rem;
-      padding: 8px 12px;
-    }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(159,130,220,.18), transparent 30%),
+    radial-gradient(circle at 85% 50%, rgba(180,190,215,.3), transparent 35%);
+}
 
-    .hero {
-      padding: 4rem 0;
-    }
+.navbar {
+  background: rgba(255,255,255,.78);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(150,150,170,.25);
+}
 
-    .grape {
-      font-size: 3.5rem;
-    }
+.logo { width: 43px; height: 43px; object-fit: cover; }
 
-    .content-section {
-      margin-bottom: 2.5rem;
-      scroll-margin-top: 90px;
-    }
+.nav-link { font-weight: 600; }
 
-    .reference-box {
-      padding: 1.25rem;
-      border: 1px solid var(--bs-border-color);
-      border-radius: 12px;
-      margin-top: 1rem;
-    }
+#themeToggle {
+  border: 0;
+  background: transparent;
+  font-size: 1.3rem;
+  padding: 8px 12px;
+  color: inherit;
+}
 
-    .grape-chart {
-      display: block;
-      max-width: 750px;
-      width: 100%;
-      height: auto;
-      margin: 1.5rem auto;
-    }
+.hero {
+  padding: 100px 20px 85px;
+  position: relative;
+}
 
-    .hero-card {
-      border-radius: 18px;
-    }
+.hero-card {
+  max-width: 950px;
+  margin: auto;
+  padding: 65px 30px;
+  border-radius: 32px;
+  background: linear-gradient(135deg,#ffffff,#e1e2eb,#f8f8fb);
+  border: 1px solid white;
+  box-shadow: 0 25px 65px rgba(50,45,75,.16),
+              inset 0 2px 4px white;
+  transform-style: preserve-3d;
+}
 
-    footer {
-      border-top: 1px solid var(--bs-border-color);
-      padding: 1.5rem 0;
-      margin-top: 3rem;
-    }
+.grape {
+  font-size: 5rem;
+  display: inline-block;
+  filter: drop-shadow(0 15px 12px rgba(75,45,110,.25));
+  animation: float 4s ease-in-out infinite;
+}
 
-    body[data-bs-theme="dark"] .dropdown-menu {
-      background: #2c2c2c;
-      border-color: #444;
-    }
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
 
-    body[data-bs-theme="dark"] .dropdown-item {
-      color: #f8f9fa;
-    }
+.hero h1 {
+  background: linear-gradient(120deg,#555568,#a58ad8,#606477);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 850;
+}
 
-    body[data-bs-theme="dark"] .dropdown-item:hover {
-      background: #3c3c3c;
-    }
+.hero p { color: #666779; }
 
-    @media (max-width: 576px) {
-      .logo {
-        width: 34px;
-        height: 34px;
-      }
+.btn-main {
+  background: linear-gradient(135deg,#9675d4,#6544a9);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 13px 27px;
+  box-shadow: 0 8px 22px rgba(111,76,175,.3);
+  transition: .3s;
+}
 
-      .hero {
-        padding: 2.5rem 0;
-      }
+.btn-main:hover {
+  color: white;
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(111,76,175,.4);
+}
 
-      h1 {
-        font-size: 2rem !important;
-      }
-    }
-  </style>
+.content-section {
+  margin: 35px 0;
+  padding: 32px;
+  border-radius: 23px;
+  background: rgba(255,255,255,.76);
+  border: 1px solid rgba(255,255,255,.9);
+  box-shadow: 0 12px 35px rgba(40,40,65,.08);
+  scroll-margin-top: 100px;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.content-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(65,50,100,.13);
+}
+
+.content-section h2 {
+  color: #7657b5;
+  font-weight: 750;
+  margin-bottom: 22px;
+}
+
+.content-section h2 i { color: #a18acb; }
+
+.reference-box {
+  padding: 25px;
+  margin-top: 20px;
+  border-radius: 18px;
+  background: linear-gradient(135deg,#f1eff8,#fff);
+  border: 1px solid #e2dced;
+}
+
+.table {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.table thead th {
+  background: #8064b7;
+  color: white;
+  border-color: #9d87c9;
+}
+
+.table td, .table th { padding: 14px; }
+
+.grape-chart {
+  display: block;
+  max-width: 750px;
+  width: 100%;
+  height: auto;
+  margin: 25px auto;
+  border-radius: 18px;
+  box-shadow: 0 15px 35px rgba(40,35,65,.18);
+}
+
+a { color: #7856b8; }
+
+a:hover { color: #52358d; }
+
+footer {
+  margin-top: 70px;
+  padding: 35px 0;
+  background: rgba(255,255,255,.65);
+  border-top: 1px solid #dedee8;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MODO OSCURO */
+body[data-bs-theme="dark"] {
+  background: #10111a;
+  color: #e8e8ef;
+}
+
+body[data-bs-theme="dark"]::before {
+  background:
+    radial-gradient(circle at 15% 10%,rgba(125,85,190,.2),transparent 30%),
+    radial-gradient(circle at 85% 50%,rgba(100,110,150,.15),transparent 35%);
+}
+
+body[data-bs-theme="dark"] .navbar {
+  background: rgba(18,18,29,.85);
+  border-color: #333344;
+}
+
+body[data-bs-theme="dark"] .hero-card {
+  background: linear-gradient(135deg,#252535,#171722,#303044);
+  border-color: #44445a;
+  box-shadow: 0 25px 65px rgba(0,0,0,.4);
+}
+
+body[data-bs-theme="dark"] .hero h1 {
+  background: linear-gradient(120deg,#fff,#bca8ed,#c5c8d8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+body[data-bs-theme="dark"] .hero p { color: #c3c1d0; }
+
+body[data-bs-theme="dark"] .content-section {
+  background: rgba(34,34,49,.86);
+  border-color: #414052;
+  box-shadow: 0 12px 35px rgba(0,0,0,.2);
+}
+
+body[data-bs-theme="dark"] .content-section h2 { color: #c2a8f3; }
+
+body[data-bs-theme="dark"] .reference-box {
+  background: linear-gradient(135deg,#29283b,#20202e);
+  border-color: #48435d;
+}
+
+body[data-bs-theme="dark"] .table {
+  --bs-table-bg: #262637;
+  --bs-table-color: #eee;
+  --bs-table-striped-bg: #303044;
+  --bs-table-striped-color: #fff;
+  --bs-table-border-color: #4a4960;
+}
+
+body[data-bs-theme="dark"] footer {
+  background: #171722;
+  border-color: #39394a;
+}
+
+body[data-bs-theme="dark"] a { color: #c0a6f3; }
+
+body[data-bs-theme="dark"] .dropdown-menu {
+  background: #262637;
+  border-color: #444;
+}
+
+body[data-bs-theme="dark"] .dropdown-item { color: white; }
+body[data-bs-theme="dark"] .dropdown-item:hover { background: #414052; }
+
+@media(max-width:768px) {
+  .hero { padding: 45px 10px; }
+  .hero-card { padding: 45px 18px; }
+  .hero h1 { font-size: 2.1rem; }
+  .content-section { padding: 22px 17px; }
+  .grape { font-size: 4rem; }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
 </head>
 
 <body data-bs-theme="light">
 
-  <nav class="navbar navbar-expand-lg shadow sticky-top">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#projecte">
-        <img src="../logo.png" alt="Logotip" class="logo rounded-circle me-2">
-        <span class="fw-bold">Web de Victoria Mabel</span>
-      </a>
+<nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#projecte">
+      <img src="../logo.png" alt="Logotip" class="logo rounded-circle me-2">
+      <span class="fw-bold">Victoria Mabel</span>
+    </a>
 
-      <button class="navbar-toggler" type="button"
-        data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false"
-        aria-label="Obrir menú">
-        <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarNav" aria-label="Obrir menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-diagram-project me-1"></i> Projecte
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#objectiu">Objectiu</a></li>
+            <li><a class="dropdown-item" href="#ia">Intel·ligència artificial</a></li>
+            <li><a class="dropdown-item" href="#google-academic">Google Acadèmic</a></li>
+            <li><a class="dropdown-item" href="#comparacio">Comparació</a></li>
+            <li><a class="dropdown-item" href="#articles">Articles científics</a></li>
+            <li><a class="dropdown-item" href="#grafica">Gràfic del raïm</a></li>
+            <li><a class="dropdown-item" href="#conclusions">Conclusions</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#conclusions">Conclusions</a></li>
+      </ul>
+
+      <button id="themeToggle" type="button" aria-label="Canviar el tema" title="Canviar el tema">
+        <i class="fa-solid fa-moon"></i>
       </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#projecte"
-              role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <i class="fa-solid fa-diagram-project me-1"></i>
-              IA vs Google Acadèmic
-            </a>
-
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#objectiu">Objectiu del treball</a></li>
-              <li><a class="dropdown-item" href="#ia">Intel·ligència artificial</a></li>
-              <li><a class="dropdown-item" href="#google-academic">Google Acadèmic</a></li>
-              <li><a class="dropdown-item" href="#comparacio">Comparació</a></li>
-              <li><a class="dropdown-item" href="#articles">Articles científics</a></li>
-              <li><a class="dropdown-item" href="#grafica">Gràfic del raïm</a></li>
-              <li><a class="dropdown-item" href="#conclusions">Conclusions</a></li>
-            </ul>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#conclusions">Conclusions</a>
-          </li>
-        </ul>
-
-        <button id="themeToggle" type="button"
-          aria-label="Canviar el tema" title="Canviar el tema">
-          <i class="fa-solid fa-moon"></i>
-        </button>
-      </div>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <main class="container">
+<main class="container">
 
-    <header class="hero text-center" id="projecte">
-      <div class="grape" aria-hidden="true">🍇</div>
+<header class="hero text-center" id="projecte">
+  <div class="hero-card">
+    <div class="grape" aria-hidden="true">🍇</div>
+    <h1 class="display-4 mb-3">Comparació de la IA i Google Acadèmic</h1>
+    <p class="lead">Un estudi sobre el raïm de cultiu ecològic i convencional</p>
+    <p>Projecte de recerca · Elaborat per Victoria Mabel</p>
+    <a class="btn btn-main btn-lg mt-3" href="#objectiu">
+      <i class="fa-solid fa-book-open me-2"></i>Descobreix el projecte
+    </a>
+  </div>
+</header>
 
-      <h1 class="display-5 fw-bold mb-3">
-        Comparació de la IA i Google Acadèmic
-      </h1>
+<section class="content-section reveal" id="objectiu">
+  <h2><i class="fa-solid fa-bullseye me-2"></i>1. Objectiu del treball</h2>
+  <p>Aquest treball té com a objectiu comparar la informació proporcionada per la intel·ligència artificial (IA) amb la informació que es pot trobar en articles científics mitjançant Google Acadèmic.</p>
+  <p>La fruita que estudiaré és el <strong>raïm 🍇</strong>. Investigaré si hi ha diferències entre el raïm de cultiu ecològic i el de cultiu convencional pel que fa als nutrients i altres compostos d'interès.</p>
+  <p>Alguns aspectes que es poden investigar són les vitamines, els minerals, els polifenols i altres compostos antioxidants. Les diferències s'han de comprovar amb estudis científics.</p>
+</section>
 
-      <p class="lead">
-        Treball de recerca sobre el raïm de cultiu ecològic
-        i convencional.
-      </p>
+<section class="content-section reveal" id="ia">
+  <h2><i class="fa-solid fa-robot me-2"></i>2. Què és la intel·ligència artificial?</h2>
+  <p>Per a aquest treball utilitzaré un model de llenguatge gran (LLM, de l'anglès <em>Large Language Model</em>), com ara ChatGPT, Gemini, Claude, Copilot, Grok o Perplexity.</p>
+  <p>Aquests sistemes poden ajudar a explicar conceptes, resumir informació i proposar paraules clau per a una cerca. Tanmateix, poden cometre errors o proporcionar referències que cal verificar.</p>
+  <p>Per això, les respostes de la IA no es consideraran proves científiques per si soles. Comprovaré les afirmacions amb fonts originals sempre que sigui possible.</p>
+</section>
 
-      <p class="text-secondary">Elaborat per Victoria Mabel</p>
+<section class="content-section reveal" id="google-academic">
+  <h2><i class="fa-solid fa-graduation-cap me-2"></i>3. Què és Google Acadèmic?</h2>
+  <p>Google Acadèmic és un cercador que permet localitzar articles científics, tesis, llibres i altres documents acadèmics. Els resultats s'han de revisar per comprovar l'autoria, la data, la metodologia i la qualitat de cada estudi.</p>
+  <p>Pots consultar-lo aquí: <a href="https://scholar.google.com/?hl=ca" target="_blank" rel="noopener noreferrer">Google Acadèmic</a>.</p>
+</section>
 
-      <a class="btn btn-primary btn-lg mt-3" href="#objectiu">
-        <i class="fa-solid fa-book-open me-2"></i>
-        Descobreix el projecte
-      </a>
-    </header>
+<section class="content-section reveal" id="comparacio">
+  <h2><i class="fa-solid fa-scale-balanced me-2"></i>4. Comparació de les fonts d'informació</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped align-middle">
+      <thead><tr><th>Aspecte</th><th>Intel·ligència artificial</th><th>Google Acadèmic</th></tr></thead>
+      <tbody>
+        <tr><th>Funció</th><td>Explica i resumeix informació.</td><td>Ajuda a trobar publicacions acadèmiques.</td></tr>
+        <tr><th>Velocitat</th><td>Pot donar una resposta ràpidament.</td><td>Cal cercar i revisar els resultats.</td></tr>
+        <tr><th>Fiabilitat</th><td>Pot cometre errors i donar dades incorrectes.</td><td>Permet consultar estudis, però cal valorar-ne la qualitat.</td></tr>
+        <tr><th>Referències</th><td>Les referències s'han de comprovar.</td><td>Pot mostrar articles i les seves dades bibliogràfiques.</td></tr>
+        <tr><th>Utilitat</th><td>Ajuda a entendre conceptes i preparar cerques.</td><td>Ajuda a localitzar fonts científiques originals.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
-    <section class="content-section" id="objectiu">
-      <h2 class="h3">
-        <i class="fa-solid fa-bullseye me-2"></i>
-        1. Objectiu del treball
-      </h2>
+<section class="content-section reveal" id="articles">
+  <h2><i class="fa-solid fa-file-lines me-2"></i>5. Cerca d'articles científics</h2>
+  <p>Per investigar les possibles diferències entre el raïm ecològic i el convencional, buscaré estudis relacionats amb els polifenols, els antioxidants i la composició nutricional.</p>
+  <p>És important llegir el resum de cada article i comprovar quins raïms s'han estudiat, com s'ha fet l'experiment i quins resultats s'han obtingut.</p>
 
-      <p>
-        Aquest treball té com a objectiu comparar la informació
-        proporcionada per la intel·ligència artificial (IA) amb
-        la informació que es pot trobar en articles científics
-        mitjançant Google Acadèmic.
-      </p>
+  <div class="reference-box">
+    <h3 class="h5 fw-bold">Cerques recomanades</h3>
+    <ul>
+      <li><a href="https://scholar.google.com/scholar?q=organic+and+conventional+grapes+polyphenols" target="_blank" rel="noopener noreferrer">Raïm ecològic i convencional: polifenols</a></li>
+      <li><a href="https://scholar.google.com/scholar?q=grape+antioxidants+organic+conventional+farming" target="_blank" rel="noopener noreferrer">Antioxidants del raïm i tipus de cultiu</a></li>
+      <li><a href="https://scholar.google.com/scholar?q=grape+skin+seeds+phenolic+compounds" target="_blank" rel="noopener noreferrer">Compostos fenòlics de la pell i les llavors del raïm</a></li>
+    </ul>
+    <p class="mb-0">Aquestes són cerques per trobar articles, no conclusions científiques. Cal llegir els estudis abans d'afirmar que un tipus de raïm és millor que l'altre.</p>
+  </div>
+</section>
 
-      <p>
-        La fruita que estudiaré és el <strong>raïm 🍇</strong>.
-        Investigaré si hi ha diferències entre el raïm de cultiu
-        ecològic i el de cultiu convencional pel que fa als
-        nutrients i altres compostos d'interès.
-      </p>
+<section class="content-section reveal" id="grafica">
+  <h2><i class="fa-solid fa-chart-column me-2"></i>6. Compostos presents en el raïm</h2>
+  <p>El raïm conté diferents compostos que es poden estudiar. La pell, les llavors i la polpa no tenen necessàriament la mateixa composició. Alguns compostos fenòlics, per exemple, es troben especialment a la pell i a les llavors.</p>
 
-      <p>
-        Alguns aspectes que es poden investigar són les vitamines,
-        els minerals, els polifenols i altres compostos antioxidants.
-        Les diferències s'han de comprovar amb estudis científics.
-      </p>
-    </section>
+  <figure class="text-center my-4">
+    <img src="grafic-raim.png" alt="Gràfic dels compostos presents en les llavors, la pell i la polpa del raïm" class="img-fluid grape-chart" loading="lazy">
+    <figcaption class="text-secondary mt-2">Gràfic sobre els compostos del raïm. Cal consultar-ne la font original per interpretar les dades correctament.</figcaption>
+  </figure>
 
-    <section class="content-section" id="ia">
-      <h2 class="h3">
-        <i class="fa-solid fa-robot me-2"></i>
-        2. Què és la intel·ligència artificial?
-      </h2>
+  <p>El gràfic s'ha d'interpretar tenint en compte la informació que hi apareix i la font original. No s'han d'extreure conclusions que les dades no permetin demostrar.</p>
+</section>
 
-      <p>
-        Per a aquest treball utilitzaré un model de llenguatge gran
-        (LLM, de l'anglès <em>Large Language Model</em>), com ara
-        ChatGPT, Gemini, Claude, Copilot, Grok o Perplexity.
-      </p>
+<section class="content-section reveal" id="conclusions">
+  <h2><i class="fa-solid fa-circle-check me-2"></i>7. Conclusions</h2>
+  <p>La intel·ligència artificial i Google Acadèmic són eines diferents que es poden complementar. La IA pot facilitar la comprensió d'un tema i ajudar a preparar una cerca, mentre que Google Acadèmic permet localitzar publicacions científiques per comprovar la informació.</p>
+  <p>En el cas del raïm ecològic i convencional, no es pot afirmar que un sigui millor només a partir d'una resposta de la IA o d'un únic article. Cal comparar estudis fiables i tenir en compte les condicions de cultiu i els mètodes utilitzats.</p>
+  <p>Per tant, la millor manera de fer aquest treball és utilitzar la IA com a ajuda i verificar les dades amb fonts científiques.</p>
+  <a class="btn btn-main mt-3" href="#projecte"><i class="fa-solid fa-arrow-up me-2"></i>Tornar a l'inici</a>
+</section>
 
-      <p>
-        Aquests sistemes poden ajudar a explicar conceptes, resumir
-        informació i proposar paraules clau per a una cerca.
-        Tanmateix, poden cometre errors o proporcionar referències
-        que cal verificar.
-      </p>
+</main>
 
-      <p>
-        Per això, les respostes de la IA no es consideraran proves
-        científiques per si soles. Comprovaré les afirmacions amb
-        fonts originals sempre que sigui possible.
-      </p>
-    </section>
+<footer class="text-center">
+  <div class="container">
+    <p class="mb-1"><i class="fa-solid fa-graduation-cap me-1"></i>Projecte de recerca: IA i Google Acadèmic</p>
+    <p class="mb-0">Elaborat per Victoria Mabel · 2026</p>
+  </div>
+</footer>
 
-    <section class="content-section" id="google-academic">
-      <h2 class="h3">
-        <i class="fa-solid fa-graduation-cap me-2"></i>
-        3. Què és Google Acadèmic?
-      </h2>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = themeToggle.querySelector("i");
+const body = document.body;
 
-      <p>
-        Google Acadèmic és un cercador que permet localitzar articles
-        científics, tesis, llibres i altres documents acadèmics.
-        Els resultats s'han de revisar per comprovar l'autoria,
-        la data, la metodologia i la qualitat de cada estudi.
-      </p>
+themeToggle.addEventListener("click", () => {
+  const newTheme = body.getAttribute("data-bs-theme") === "light" ? "dark" : "light";
+  body.setAttribute("data-bs-theme", newTheme);
+  themeIcon.className = newTheme === "dark" ? "fa-solid fa-sun" : "fa-solid fa-moon";
+});
 
-      <p>
-        Pots consultar-lo aquí:
-        <a href="https://scholar.google.com/?hl=ca"
-          target="_blank" rel="noopener noreferrer">
-          Google Acadèmic
-        </a>.
-      </p>
-    </section>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
 
-    <section class="content-section" id="comparacio">
-      <h2 class="h3">
-        <i class="fa-solid fa-scale-balanced me-2"></i>
-        4. Comparació de les fonts d'informació
-      </h2>
-
-      <div class="table-responsive">
-        <table class="table table-bordered table-striped align-middle">
-          <thead class="table-primary">
-            <tr>
-              <th>Aspecte</th>
-              <th>Intel·ligència artificial</th>
-              <th>Google Acadèmic</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <th>Funció</th>
-              <td>Explica i resumeix informació.</td>
-              <td>Ajuda a trobar publicacions acadèmiques.</td>
-            </tr>
-            <tr>
-              <th>Velocitat</th>
-              <td>Pot donar una resposta ràpidament.</td>
-              <td>Cal cercar i revisar els resultats.</td>
-            </tr>
-            <tr>
-              <th>Fiabilitat</th>
-              <td>Pot cometre errors i donar dades incorrectes.</td>
-              <td>Permet consultar estudis, però cal valorar-ne la qualitat.</td>
-            </tr>
-            <tr>
-              <th>Referències</th>
-              <td>Les referències s'han de comprovar.</td>
-              <td>Pot mostrar articles i les seves dades bibliogràfiques.</td>
-            </tr>
-            <tr>
-              <th>Utilitat</th>
-              <td>Ajuda a entendre conceptes i preparar cerques.</td>
-              <td>Ajuda a localitzar fonts científiques originals.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="content-section" id="articles">
-      <h2 class="h3">
-        <i class="fa-solid fa-file-lines me-2"></i>
-        5. Cerca d'articles científics
-      </h2>
-
-      <p>
-        Per investigar les possibles diferències entre el raïm
-        ecològic i el convencional, buscaré estudis relacionats amb
-        els polifenols, els antioxidants i la composició nutricional.
-      </p>
-
-      <p>
-        És important llegir el resum de cada article i comprovar
-        quins raïms s'han estudiat, com s'ha fet l'experiment
-        i quins resultats s'han obtingut.
-      </p>
-
-      <div class="reference-box">
-        <h3 class="h5">Cerques recomanades</h3>
-
-        <ul>
-          <li>
-            <a href="https://scholar.google.com/scholar?q=organic+and+conventional+grapes+polyphenols"
-              target="_blank" rel="noopener noreferrer">
-              Raïm ecològic i convencional: polifenols
-            </a>
-          </li>
-          <li>
-            <a href="https://scholar.google.com/scholar?q=grape+antioxidants+organic+conventional+farming"
-              target="_blank" rel="noopener noreferrer">
-              Antioxidants del raïm i tipus de cultiu
-            </a>
-          </li>
-          <li>
-            <a href="https://scholar.google.com/scholar?q=grape+skin+seeds+phenolic+compounds"
-              target="_blank" rel="noopener noreferrer">
-              Compostos fenòlics de la pell i les llavors del raïm
-            </a>
-          </li>
-        </ul>
-
-        <p class="mb-0">
-          Aquestes són cerques per trobar articles, no conclusions
-          científiques. Cal llegir els estudis abans d'afirmar
-          que un tipus de raïm és millor que l'altre.
-        </p>
-      </div>
-    </section>
-
-    <section class="content-section" id="grafica">
-      <h2 class="h3">
-        <i class="fa-solid fa-chart-column me-2"></i>
-        6. Compostos presents en el raïm
-      </h2>
-
-      <p>
-        El raïm conté diferents compostos que es poden estudiar.
-        La pell, les llavors i la polpa no tenen necessàriament
-        la mateixa composició. Alguns compostos fenòlics, per
-        exemple, es troben especialment a la pell i a les llavors.
-      </p>
-
-      <figure class="text-center my-4">
-        <img
-          src="grafic-raim.png"
-          alt="Gràfic científic dels compostos presents en les llavors, la pell i la polpa del raïm"
-          class="img-fluid rounded shadow grape-chart"
-          loading="lazy"
-        >
-        <figcaption class="text-secondary mt-2">
-          Gràfic sobre els compostos del raïm. Cal consultar-ne
-          la font original per interpretar les dades correctament.
-        </figcaption>
-      </figure>
-
-      <p>
-        El gràfic s'ha d'interpretar tenint en compte la informació
-        que hi apareix i la font original. No s'han d'extreure
-        conclusions que les dades no permetin demostrar.
-      </p>
-    </section>
-
-    <section class="content-section" id="conclusions">
-      <h2 class="h3">
-        <i class="fa-solid fa-circle-check me-2"></i>
-        7. Conclusions
-      </h2>
-
-      <p>
-        La intel·ligència artificial i Google Acadèmic són eines
-        diferents que es poden complementar. La IA pot facilitar
-        la comprensió d'un tema i ajudar a preparar una cerca,
-        mentre que Google Acadèmic permet localitzar publicacions
-        científiques per comprovar la informació.
-      </p>
-
-      <p>
-        En el cas del raïm ecològic i convencional, no es pot
-        afirmar que un sigui millor només a partir d'una resposta
-        de la IA o d'un únic article. Cal comparar estudis fiables
-        i tenir en compte les condicions de cultiu i els mètodes
-        utilitzats.
-      </p>
-
-      <p>
-        Per tant, la millor manera de fer aquest treball és utilitzar
-        la IA com a ajuda i verificar les dades amb fonts científiques.
-      </p>
-
-      <a class="btn btn-outline-primary" href="#projecte">
-        <i class="fa-solid fa-arrow-up me-2"></i>
-        Tornar a l'inici
-      </a>
-    </section>
-
-  </main>
-
-  <footer class="text-center">
-    <div class="container">
-      <p class="mb-1">
-        <i class="fa-solid fa-graduation-cap me-1"></i>
-        Projecte de recerca: IA i Google Acadèmic
-      </p>
-      <p class="text-secondary mb-0">
-        Elaborat per Victoria Mabel
-      </p>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script>
-    const themeToggle = document.getElementById("themeToggle");
-    const themeIcon = themeToggle.querySelector("i");
-    const body = document.body;
-
-    themeToggle.addEventListener("click", function () {
-      const currentTheme = body.getAttribute("data-bs-theme");
-      const newTheme = currentTheme === "light" ? "dark" : "light";
-
-      body.setAttribute("data-bs-theme", newTheme);
-
-      if (newTheme === "dark") {
-        themeIcon.classList.replace("fa-moon", "fa-sun");
-      } else {
-        themeIcon.classList.replace("fa-sun", "fa-moon");
-      }
-    });
-  </script>
+document.querySelectorAll(".reveal").forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
